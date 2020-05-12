@@ -2,7 +2,8 @@
 __author__ = "hallo"
 
 from airtest.core.api import *
-ST.PROJECT_ROOT = "C:\\airtest_script\\"
+#ST.PROJECT_ROOT = "C:\\airtest_script\\"
+ST.PROJECT_ROOT = "D:\\android_airtest\\"
 from airtest.core.api import using
 using("common_api.air")
 

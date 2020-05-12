@@ -86,7 +86,7 @@ def selectApp(app_name):
         poco.wait_for_any(poco(text=app_name,type='android.widget.ImageView'))
         poco(text=app_name,type='android.widget.TextView').click()
     except PocoNoSuchNodeException:
-        swipe((500,1500),(500,700),duration=1) #从下到上画横线1秒
+        swipe((500,1500),(500,700),duration=2) #从下到上画横线1秒
         poco(text=app_name).click()
         
 
@@ -115,11 +115,11 @@ selectTab('工作台')
 selectOrg_0(org_name='kentest项目10')
 '''
     
-
+'''
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 
 poco("com.tencent.mm:id/dlh").setattr('checkable',True)
 
-
+'''

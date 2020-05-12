@@ -7,7 +7,8 @@ import threading
 import time
 import random
 
-ST.PROJECT_ROOT = "C:\\airtest_script\\"
+#ST.PROJECT_ROOT = "D:\\airtest_script\\"
+ST.PROJECT_ROOT = "D:\\android_airtest\\"
 from airtest.core.api import using
 
 using("login.air")
@@ -114,7 +115,7 @@ def select_task(task_name):
     #选择任务检查
     poco(text="请输入关键词").click()
     text(task_name,enter=False)
-   
+    
     poco(text=task_name,touchable=False).click()  #单纯对text匹配会匹配到输入框
     
 
@@ -135,13 +136,13 @@ def safetyInspection():
     clear_app("cn.smartinspection.combine")
     print ("111111111111111111111111111111111")
     start_app(apk)
-
+    '''
     #authApp()
     '''
     #login('kentestgrp10','12345678','p1','kentestgrp10')
     '''
-    '''
-    start_app(apk)
+    
+    #start_app(apk)
     login('kentest50','12345678','p1','kentest50')
 
     selectMode("组织架构聚合")
