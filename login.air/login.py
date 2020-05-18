@@ -24,7 +24,7 @@ def login(username='kentestgrp10',password='12345678',enterprise='p1',real_name=
     #遍历账号输入框，不管有没值，先置空
     for edittext in poco(type='android.widget.EditText'):
         edittext.set_text("")
-    
+    sleep(1)
     #获取用户名输入框，点击清空内容并输入
     username_field = poco(text="请输入用户名") 
     username_field.click()
