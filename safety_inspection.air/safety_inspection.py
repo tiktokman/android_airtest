@@ -51,8 +51,9 @@ def pic_test():
 #长按删除照片
 def delete_pic():
     swipe((130,330),(130,330),duration=0.5) #拖动到相对位置为0的地方，实现长按效果
-    assert_exists(Template(r"tpl1585582863805.png", record_pos=(-0.324, -0.824), resolution=(1080, 2340)))
-    touch(Template(r"tpl1585582863805.png", record_pos=(-0.324, -0.824), resolution=(1080, 2340)))
+    assert_exists(Template(r"tpl1585582863805.png", threshold=0.9, record_pos=(-0.324, -0.824), resolution=(1080, 2340)))
+    while exists(Template(r"tpl1585582863805.png", threshold=0.9, record_pos=(-0.324, -0.824), resolution=(1080, 2340))):
+        touch(Template(r"tpl1585582863805.png", threshold=0.9, record_pos=(-0.324, -0.824), resolution=(1080, 2340)))
     sleep(1)
     
 
@@ -70,7 +71,7 @@ def check_item():
         else:
             item.child().child().set_text("1")  #将值设短，避免影响组件顺序
             item.child().child()[1].click() #点击√ 
-    #return false_item
+    return false_item
     
 #新增合格检查，并断言结果    
 def add_qualified():
@@ -94,16 +95,10 @@ def add_qualified():
     
     
     sleep(1)
+    
+    touch((500,680)) #通过坐标点击最新一条检查记录
+    
 
-    if poco("cn.smartinspection.combine:id/rv_record_list").child("android.widget.LinearLayout")[0].offspring(text="正常"):
-        print ("新增成功")
-    else : assert_equal(1,0)  #否则失败
-    
-    from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
-    poco("cn.smartinspection.combine:id/rv_record_list").child("android.widget.LinearLayout")[0].offspring(text="正常").click()
-    
-    poco("cn.smartinspection.combine:id/rv_record_list").child("android.widget.LinearLayout")[0].click()
     
     assert_exists(Template(r"tpl1586277235003.png", record_pos=(0.029, -0.618), resolution=(1080, 2340)), "新增不合格成功")
     
@@ -138,21 +133,43 @@ def add_unqualified():
     
     check_item()
         
-    poco(text="检查合格",type="android.widget.Button").click()
+    poco(text="检查不合格",type="android.widget.Button").click()
     
     sleep(1)
     
     add_issue(0)
 
-    if poco("cn.smartinspection.combine:id/rv_record_list").child("android.widget.LinearLayout")[0].offspring(text="异常"):
-        print ("新增成功")
-    else : assert_equal(1,0)  #否则失败
+    touch((500,680)) #通过坐标点击最新一条检查记录
     
-    poco("cn.smartinspection.combine:id/rv_record_list").child("android.widget.LinearLayout")[0].click()
-    
-    assert_exists(Template(r"tpl1589819373127.png", record_pos=(0.005, -0.619), resolution=(1080, 2340)), "新增合格成功")
+    assert_exists(Template(r"tpl1589819373127.png", record_pos=(0.005, -0.619), resolution=(1080, 2340)), "新增不合格成功")
     
     poco(name="转到上一层级").click()
+
+#新增不合格检查，并发起问题    
+def add_unqualified_issue():
+    poco(text="新增检查记录").click()
+    take_pic(2)
+    sleep(1)
+    
+    pic_test()
+    
+    #delete_pic()
+    
+    poco(text="补充描述").click()
+
+    check_time = time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())
+    comment = "于 " + check_time +" 新增不合格检查记录。"
+    text(comment,enter=False)
+    
+    false_item = check_item()
+        
+    poco(text="检查不合格",type="android.widget.Button").click()
+    
+    sleep(1)
+    
+    add_issue(1)
+
+    
 
     
     
@@ -203,9 +220,9 @@ def safetyInspection():
     select_task(task_name="综合--每周--排查")
     select_object(object_name="消防箱A啊")
     
-    add_qualified()
+    #add_qualified()
     add_unqualified()
-    
+    add_unqualified_issue()
     '''
     poco(text="新增检查记录").click()
     
