@@ -15,7 +15,7 @@ using("login.air")
 from login import login
 
 using("common_api.air")
-from common_api import authApp,selectMode,selectOrg_0,selectApp,take_pic
+from common_api import authApp,selectMode,selectOrg_0,selectApp,take_pic,search_check_item
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
@@ -114,16 +114,34 @@ def add_issue(add): # 0：否  1：是
         poco(text='是').click()
     sleep(1)
         
+def create_issue(check_item):
+    exists(Template(r"tpl1590423070275.png", record_pos=(-0.264, -0.774), resolution=(1080, 2340)))
     
+    #搜索检查项，选择、断言
+    poco(text="检查项",type='android.widget.TextView').click()
+    result_item ='.*' + search_check_item(check_item) + '.*$'
+    
+    poco.wait_for_any(poco(textMatches=result_item))
+    
+    
+    #添加语音
+    
+    #断言描述内容
+    
+    #搜索检查部位、选择、断言
+    
+    #选择图纸
+    
+    #人员、期限
+
+        
+        
 #新增不合格检查，并断言结果    
 def add_unqualified():
     poco(text="新增检查记录").click()
     take_pic(2)
     sleep(1)
     
-    pic_test()
-    
-    #delete_pic()
     
     poco(text="补充描述").click()
 
@@ -149,11 +167,7 @@ def add_unqualified():
 def add_unqualified_issue():
     poco(text="新增检查记录").click()
     take_pic(2)
-    sleep(1)
-    
-    pic_test()
-    
-    #delete_pic()
+    sleep(1)    
     
     poco(text="补充描述").click()
 
@@ -168,7 +182,7 @@ def add_unqualified_issue():
     sleep(1)
     
     add_issue(1)
-
+    
     
 
     
@@ -194,7 +208,7 @@ def select_object(object_name):
     #选择检查对象
     poco(text="请输入关键词").click()
     text(object_name,enter=False)
-    object_match = '^' + object_name + '.*$'
+    object_match = '^' + object_name + '.*$'  #匹配以object_name开头的字符串
     poco(textMatches=object_match,type="android.widget.TextView").parent().click()
 
 def safetyInspection():
@@ -204,14 +218,15 @@ def safetyInspection():
     print ("111111111111111111111111111111111")
     start_app(apk)
     '''
+    
     #authApp()
     '''
     #login('kentestgrp10','12345678','p1','kentestgrp10')
     '''
     
     #start_app(apk)
-    login('kentest50','12345678','p1','kentest50')
-
+    #login('kentest50','12345678','p1','kentest50')
+    '''
     selectMode("组织架构聚合")
     selectOrg_0(org_name='公司1项目贰')
     selectApp("安全检查") 
@@ -220,41 +235,11 @@ def safetyInspection():
     select_task(task_name="综合--每周--排查")
     select_object(object_name="消防箱A啊")
     
-    #add_qualified()
+    add_qualified()
     add_unqualified()
-    add_unqualified_issue()
     '''
-    poco(text="新增检查记录").click()
-    
-    poco(text="检查合格").click()
-    assert_exists(Template(r"tpl1585580896125.png", record_pos=(0.002, 0.744), resolution=(1080, 2340)), "先拍照或填写描述")
-
-    
-    take_pic(2)
-    sleep(1)
-    
-    pic_test()
-    
-    delete_pic()
-    
-    
-    poco(text="补充描述").click()
-    text("自动化合格检查记录",enter=False)
-    poco(text="检查合格").click()
-    assert_exists(Template(r"tpl1583422420317.png", record_pos=(-0.001, 0.729), resolution=(1080, 2340)),"先提交检查项完成情况")
-    poco(text="检查不合格").click()
-    assert_exists(Template(r"tpl1583422420317.png", record_pos=(-0.001, 0.729), resolution=(1080, 2340)),"先提交检查项完成情况")
-    
-    touch(Template(r"tpl1583423174426.png", record_pos=(-0.019, -0.345), resolution=(1080, 2340)))
-    sleep(1)
-    if poco(text="关闭"):
-        poco(text="关闭").click()
-        
-    check_item()
-        
-    poco(text="检查合格",type="android.widget.Button").click()
-    '''
-    
+    #add_unqualified_issue()
+    create_issue('安全员')
     
         
 def networdTest():
