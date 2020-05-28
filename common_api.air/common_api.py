@@ -11,6 +11,7 @@ poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=Fa
 
 auto_setup(__file__)
 
+#首次安装启动、获取权限
 def authApp():
     wait(Template(r"tpl1586150637555.png", record_pos=(0.041, 0.866), resolution=(1080, 2340)))
 
@@ -86,7 +87,7 @@ def selectApp(app_name):
         poco.wait_for_any(poco(text=app_name,type='android.widget.ImageView'))
         poco(text=app_name,type='android.widget.TextView').click()
     except PocoNoSuchNodeException:
-        swipe((500,1500),(500,700),duration=2) #从下到上画横线1秒
+        swipe((500,1500),(500,300),duration=2) #从下到上画横线1秒
         poco(text=app_name).click()
         
 
@@ -107,7 +108,18 @@ def take_pic(number=2):
 
         
 
-        
+#搜索检查项并选择,check_item为叶子节点，返回选择结果
+def search_check_item(check_item): 
+
+    poco.wait_for_any(poco(desc='搜索'))
+    poco(desc='搜索').click() 
+    #check_item = '安全员'
+    text(check_item)
+    item_match = '.*' + check_item + '.*$' #匹配包含item_match的字符串
+    result = poco(textMatches=item_match,type="android.widget.TextView").get_text()
+    poco(textMatches=item_match,type="android.widget.TextView").click()
+    
+    return result
         
 '''      
 selectMode('组织架构聚合')
