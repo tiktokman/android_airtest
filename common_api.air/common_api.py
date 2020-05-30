@@ -120,6 +120,19 @@ def search_check_item(check_item):
     poco(textMatches=item_match,type="android.widget.TextView").click()
     
     return result
+
+#添加录音
+def create_audio()
+
+    poco.wait_for_any(poco(text='添加语音'))
+    poco(text='添加语音').click()
+    wait(Template(r"tpl1590829001549.png", record_pos=(0.003, -0.119), resolution=(1080, 2340)))
+
+    sleep(3)
+    touch(Template(r"tpl1590829001549.png", record_pos=(0.003, -0.119), resolution=(1080, 2340)))
+    
+    exists(Template(r"tpl1590829152224.png", record_pos=(-0.319, 0.094), resolution=(1080, 2340)))
+
         
 '''      
 selectMode('组织架构聚合')
@@ -135,3 +148,4 @@ poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=Fa
 poco("com.tencent.mm:id/dlh").setattr('checkable',True)
 
 '''
+

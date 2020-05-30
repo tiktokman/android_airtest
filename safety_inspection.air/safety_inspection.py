@@ -15,7 +15,7 @@ using("login.air")
 from login import login
 
 using("common_api.air")
-from common_api import authApp,selectMode,selectOrg_0,selectApp,take_pic,search_check_item
+from common_api import *
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
@@ -125,7 +125,7 @@ def create_issue(check_item):
     
     
     #添加语音
-    
+    create_audio()
     #断言描述内容
     
     #搜索检查部位、选择、断言
@@ -299,6 +299,7 @@ print ("完成测试")
 #home_edit
 
 #branch_test
+
 
 
 
