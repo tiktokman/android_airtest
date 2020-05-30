@@ -149,7 +149,16 @@ def search_area(area)  #area为部位列表  area = ['1#','第3层','3F5房']
         elif loop ==len(area):
             poco(text=i,type='android.widget.TextView').sibling(text='本层').click()  #选择本层级
             
-        
+
+#标记图纸
+def mark_drawing():
+    
+    while exists(Template(r"tpl1590847778912.png", record_pos=(0.001, -0.793), resolution=(1080, 2340))):  #如果该UI存在则代表未选择图纸位置
+        x = random.randint(20,1000)
+        y = random.randint(900,1500)
+        touch((x,y))
+        sleep(1) #点击完后，页面并不会马上切换，仍可能检测到原页面造成继续点击，所以此处停留一秒
+    
         
 '''      
 selectMode('组织架构聚合')

@@ -136,8 +136,10 @@ def create_issue(check_item,area):   #需设置为不通过的检查项； 检�
     sleep(1)
     poco.wait_for_any(poco(text='-'.join(area)))
     
-    #选择图纸
-
+    #标记图纸
+    poco(text='图纸位置').click()
+    mark_drawing()
+    poco.wait_for_any(poco(text='已标识(1)'))  #只标记一个点的断言
     
     #人员、期限
 
