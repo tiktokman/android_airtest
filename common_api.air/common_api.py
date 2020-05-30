@@ -133,6 +133,23 @@ def create_audio()
     
     exists(Template(r"tpl1590829152224.png", record_pos=(-0.319, 0.094), resolution=(1080, 2340)))
 
+#搜索检查部位并选择    
+def search_area(area)  #area为部位列表  area = ['1#','第3层','3F5房']
+
+    #area = ['1#','第3层','3F5房']
+    poco.wait_for_any(poco(text='选择检查部位'))
+    poco(desc='搜索').click()
+    loop = 0
+    for i in area:
+        poco.wait_for_any(poco(text='   请输入关键词'))
+        text(i)
+        loop = loop + 1
+        if loop ==3 or loop < len(area):  #当到达户或处于中间层
+            poco(text=i,type='android.widget.TextView').click()   #进入该户或进入该区域下一级
+        elif loop ==len(area):
+            poco(text=i,type='android.widget.TextView').sibling(text='本层').click()  #选择本层级
+            
+        
         
 '''      
 selectMode('组织架构聚合')

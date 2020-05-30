@@ -114,7 +114,7 @@ def add_issue(add): # 0：否  1：是
         poco(text='是').click()
     sleep(1)
         
-def create_issue(check_item):
+def create_issue(check_item,area):   #需设置为不通过的检查项； 检查部位列表；
     exists(Template(r"tpl1590423070275.png", record_pos=(-0.264, -0.774), resolution=(1080, 2340)))
     
     #搜索检查项，选择、断言
@@ -123,15 +123,21 @@ def create_issue(check_item):
     
     poco.wait_for_any(poco(textMatches=result_item))
     
-    
     #添加语音
     create_audio()
+    
     #断言描述内容
     content="如题如题发现如下问题：" + check_item +";" 
     poco.wait_for_any(poco(text=content))
+    
     #搜索检查部位、选择、断言
+    poco(text='检查部位').click()
+    search_area(area)
+    sleep(1)
+    poco.wait_for_any(poco(text='-'.join(area)))
     
     #选择图纸
+
     
     #人员、期限
 
