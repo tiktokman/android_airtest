@@ -142,7 +142,7 @@ def search_area(area)  #area为部位列表  area = ['1#','第3层','3F5房']
     loop = 0
     for i in area:
         poco.wait_for_any(poco(text='   请输入关键词'))
-        text(i)
+        text(i,enter=False)
         loop = loop + 1
         if loop ==3 or loop < len(area):  #当到达户或处于中间层
             poco(text=i,type='android.widget.TextView').click()   #进入该户或进入该区域下一级
@@ -152,14 +152,37 @@ def search_area(area)  #area为部位列表  area = ['1#','第3层','3F5房']
 
 #标记图纸
 def mark_drawing():
-    
     while exists(Template(r"tpl1590847778912.png", record_pos=(0.001, -0.793), resolution=(1080, 2340))):  #如果该UI存在则代表未选择图纸位置
         x = random.randint(20,1000)
         y = random.randint(900,1500)
         touch((x,y))
         sleep(1) #点击完后，页面并不会马上切换，仍可能检测到原页面造成继续点击，所以此处停留一秒
+
+#搜索整改负责人        
+def search_repairer(repairer):
+    exists(Template(r"tpl1590848984273.png", record_pos=(-0.217, -0.937), resolution=(1080, 2340)))
+    #repairer ='kentest50'
     
-        
+    text(repairer,enter=False)
+    
+    poco(text=repairer).click()
+
+#搜索整改参与人
+def search_followers(followers)  #followers为参与人列表 
+    from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+    poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+    followers = ['kentest50','kentest52','kentest54']
+    
+    for i in followers:
+        text(i,enter=False)
+        poco(text=i,type='android.widget.TextView').click()
+        touch(Template(r"tpl1590850382487.png", threshold=0.9, rgb=True, record_pos=(0.435, -0.791), resolution=(1080, 2340)))
+        sleep(0.5)
+
+
+
+    
+    
 '''      
 selectMode('组织架构聚合')
 selectTab('工作台')
