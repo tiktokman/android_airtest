@@ -127,7 +127,8 @@ def create_issue(check_item):
     #添加语音
     create_audio()
     #断言描述内容
-    
+    content="如题如题发现如下问题：" + check_item +";" 
+    poco.wait_for_any(poco(text=content))
     #搜索检查部位、选择、断言
     
     #选择图纸
