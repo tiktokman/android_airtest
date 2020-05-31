@@ -169,17 +169,17 @@ def search_repairer(repairer):
 
 #搜索整改参与人
 def search_followers(followers)  #followers为参与人列表 
-    from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-    poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
-    followers = ['kentest50','kentest52','kentest54']
+    exists(Template(r"tpl1590894076336.png", record_pos=(-0.217, -0.935), resolution=(1080, 2340)))
+    #followers = ['kentest50','kentest52','kentest54']
+    poco(text='输入关键词搜索人员').click()
     
     for i in followers:
         text(i,enter=False)
         poco(text=i,type='android.widget.TextView').click()
-        touch(Template(r"tpl1590850382487.png", threshold=0.9, rgb=True, record_pos=(0.435, -0.791), resolution=(1080, 2340)))
-        sleep(0.5)
-
-
+        sleep(1)
+        touch(Template(r"tpl1590893933251.png", threshold=0.9, rgb=True, record_pos=(0.433, -0.796), resolution=(1080, 2340)))
+    
+    poco(text='确定').click()
 
     
     
