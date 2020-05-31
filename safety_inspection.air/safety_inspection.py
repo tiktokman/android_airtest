@@ -127,7 +127,7 @@ def create_issue(object_name,unqualified_item,check_item,area,repairer,followers
     create_audio()
     
     #断言描述内容
-    content= object_name + "发现如下问题：" + unqualified_item +";" 
+    content = object_name + "发现如下问题：" + unqualified_item +";" 
     poco.wait_for_any(poco(text=content))
     
     #搜索检查部位、选择、断言
@@ -141,7 +141,8 @@ def create_issue(object_name,unqualified_item,check_item,area,repairer,followers
     mark_drawing()
     poco.wait_for_any(poco(text='已标识(1)'))  #只标记一个点的断言
     
-    swipe((500,1500),(500,300),duration=1) #从下到上滑动1秒   
+    swipe((500,1500),(500,300),duration=1) #从下到上滑动1秒
+    sleep(0.5)
     #负责人、参与人
     poco(text='整改负责人').click()
     search_repairer(repairer)
@@ -174,7 +175,7 @@ def create_issue(object_name,unqualified_item,check_item,area,repairer,followers
 #新增不合格检查，并断言结果    
 def add_unqualified():
     poco(text="新增检查记录").click()
-    take_pic(2)
+    take_pic(1)
     sleep(1)
     
     
@@ -199,9 +200,9 @@ def add_unqualified():
     poco(name="转到上一层级").click()
 
 #新增不合格检查，并发起问题    
-def add_unqualified_issue():
+def add_unqualified_issue():   #返回不合格项
     poco(text="新增检查记录").click()
-    take_pic(2)
+    take_pic(1)
     sleep(1)    
     
     poco(text="补充描述").click()
@@ -218,6 +219,7 @@ def add_unqualified_issue():
     
     add_issue(1)
     
+    return false_item
     
 
     
@@ -247,7 +249,7 @@ def select_object(object_name):
     poco(textMatches=object_match,type="android.widget.TextView").parent().click()
 
 def safetyInspection():
-    
+    '''
     apk = "cn.smartinspection.combine"
     clear_app("cn.smartinspection.combine")
 
@@ -255,24 +257,21 @@ def safetyInspection():
     
     
     authApp()
-    '''
-    #login('kentestgrp10','12345678','p1','kentestgrp10')
-    '''
-    
-    #start_app(apk)
+
     login('kentest50','12345678','p1','kentest50')
     
     selectMode("组织架构聚合")
-    selectOrg_0(org_name='公司1项目贰')
-    selectApp("安全检查") 
+    '''
+    #selectOrg_0(org_name='公司1项目贰')
+    #selectApp("安全检查") 
     
     
-    select_task(task_name="综合--每周--排查")
-    object_name="消防箱A啊"
+    #select_task(task_name="综合--每周--排查")
+    object_name="请问"
     select_object(object_name)
     
-    add_qualified()
-    add_unqualified()
+    #add_qualified()
+    #add_unqualified()
     
     unqualified_item = add_unqualified_issue()
     check_item = '安全员'
