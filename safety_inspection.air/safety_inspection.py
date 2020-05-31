@@ -100,7 +100,7 @@ def add_qualified():
     
 
     
-    assert_exists(Template(r"tpl1586277235003.png", record_pos=(0.029, -0.618), resolution=(1080, 2340)), "新增不合格成功")
+    assert_exists(Template(r"tpl1586277235003.png", record_pos=(0.029, -0.618), resolution=(1080, 2340)), "新增合格成功")
     
     poco(name="转到上一层级").click()
 
@@ -114,7 +114,7 @@ def add_issue(add): # 0：否  1：是
         poco(text='是').click()
     sleep(1)
         
-def create_issue(check_item,area,repairer,followers):   #需设置为不通过的检查项； 检查部位列表； 负责人；参与人列表；
+def create_issue(object_name,unqualified_item,check_item,area,repairer,followers):   #需设置为不通过的检查项；问题检查项; 检查部位列表； 负责人；参与人列表；
     exists(Template(r"tpl1590423070275.png", record_pos=(-0.264, -0.774), resolution=(1080, 2340)))
     
     #搜索检查项，选择、断言
@@ -127,7 +127,7 @@ def create_issue(check_item,area,repairer,followers):   #需设置为不通过�
     create_audio()
     
     #断言描述内容
-    content="如题如题发现如下问题：" + check_item +";" 
+    content= object_name + "发现如下问题：" + unqualified_item +";" 
     poco.wait_for_any(poco(text=content))
     
     #搜索检查部位、选择、断言
@@ -153,6 +153,21 @@ def create_issue(check_item,area,repairer,followers):   #需设置为不通过�
     
     
     #整改期限
+    poco(text='整改期限').click()
+    poco.wait_for_any(poco(text='清空期限'))
+    
+    while exists(Template(r"tpl1590897121340.png", threshold=0.9, rgb=True, record_pos=(-0.294, 0.614), resolution=(1080, 2340))):
+        swipe((500,1500),(500,700),duration=0.5) #从上到下画横线1秒
+        x = random.randint(70,970)
+        y = random.randint(930,1750)
+        touch((x,y))
+        sleep(0.5) #点击的页面切换比较慢，需等待刷新页面组件树   
+    
+    #严重程度
+    poco(text='严重程度').sibling(type='android.widget.RadioGroup').child()[random.randint(0,2)].click()
+    
+    #提交数据
+    poco(text='保存').click()
     
         
         
@@ -232,34 +247,39 @@ def select_object(object_name):
     poco(textMatches=object_match,type="android.widget.TextView").parent().click()
 
 def safetyInspection():
-    '''
+    
     apk = "cn.smartinspection.combine"
     clear_app("cn.smartinspection.combine")
-    print ("111111111111111111111111111111111")
+
     start_app(apk)
-    '''
     
-    #authApp()
+    
+    authApp()
     '''
     #login('kentestgrp10','12345678','p1','kentestgrp10')
     '''
     
     #start_app(apk)
-    #login('kentest50','12345678','p1','kentest50')
-    '''
+    login('kentest50','12345678','p1','kentest50')
+    
     selectMode("组织架构聚合")
     selectOrg_0(org_name='公司1项目贰')
     selectApp("安全检查") 
     
     
     select_task(task_name="综合--每周--排查")
-    select_object(object_name="消防箱A啊")
+    object_name="消防箱A啊"
+    select_object(object_name)
     
     add_qualified()
     add_unqualified()
-    '''
-    #add_unqualified_issue()
-    create_issue('安全员')
+    
+    unqualified_item = add_unqualified_issue()
+    check_item = '安全员'
+    area = ['1#','第2层','2F1房']
+    repairer = 'kentest50'
+    followers = ['kentest50','kentest52','kentest54']
+    create_issue(object_name,unqualified_item,check_item,area,repairer,followers)
     
         
 def networdTest():

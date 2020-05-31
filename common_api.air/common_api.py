@@ -122,7 +122,7 @@ def search_check_item(check_item):
     return result
 
 #添加录音
-def create_audio()
+def create_audio():
 
     poco.wait_for_any(poco(text='添加语音'))
     poco(text='添加语音').click()
@@ -134,7 +134,7 @@ def create_audio()
     exists(Template(r"tpl1590829152224.png", record_pos=(-0.319, 0.094), resolution=(1080, 2340)))
 
 #搜索检查部位并选择    
-def search_area(area)  #area为部位列表  area = ['1#','第3层','3F5房']
+def search_area(area):  #area为部位列表  area = ['1#','第3层','3F5房']
 
     #area = ['1#','第3层','3F5房']
     poco.wait_for_any(poco(text='选择检查部位'))
@@ -168,7 +168,7 @@ def search_repairer(repairer):
     poco(text=repairer).click()
 
 #搜索整改参与人
-def search_followers(followers)  #followers为参与人列表 
+def search_followers(followers):  #followers为参与人列表
     exists(Template(r"tpl1590894076336.png", record_pos=(-0.217, -0.935), resolution=(1080, 2340)))
     #followers = ['kentest50','kentest52','kentest54']
     poco(text='输入关键词搜索人员').click()
