@@ -149,7 +149,7 @@ def create_issue(object_name,unqualified_item,check_item,area,repairer,followers
     poco.wait_for_any(poco(text='整改负责人').sibling(text=repairer))
     
     poco(text='整改参与人').click()
-    search_repairer(followers)
+    search_followers(followers)
     poco.wait_for_any(poco(text='整改参与人').sibling(text=';'.join(followers)))    
     
     
@@ -168,7 +168,7 @@ def create_issue(object_name,unqualified_item,check_item,area,repairer,followers
     poco(text='严重程度').sibling(type='android.widget.RadioGroup').child()[random.randint(0,2)].click()
     
     #提交数据
-    poco(text='保存').click()
+    poco(desc='保存').click()
     
         
         
@@ -267,7 +267,7 @@ def safetyInspection():
     
     
     #select_task(task_name="综合--每周--排查")
-    object_name="请问"
+    object_name="如题如题"
     select_object(object_name)
     
     #add_qualified()
