@@ -20,8 +20,7 @@ def authApp():
         poco(text="允许").click()
         sleep(0.5)
         
-
-
+        
 #选择app标签
 def selectTab(tab_name):
     wait(Template(r"tpl1582528391192.png", record_pos=(-0.004, 0.893), resolution=(1080, 2340)))
@@ -76,20 +75,22 @@ def selectApp(app_name):
     
     #检测首页是否有该模块，有则点击进入，否则返回异常，捕捉后进入更多应用选择
     try: 
-        poco.wait_for_any(poco(text=app_name,type='android.widget.ImageView'))#之所以用imageview是因为统计导航栏的影响
-        poco(text=app_name,type='android.widget.TextView').click()
+        poco.wait_for_any(poco(text=app_name,type='android.widget.TextView').sibling(name='android.widget.FrameLayout'))#区分应用UI与统计UI
+        poco(text=app_name,type='android.widget.TextView').sibling(name='android.widget.FrameLayout').click()
     except PocoNoSuchNodeException:
         poco(text='更多').click()
         sleep(1)
         poco.wait_for_any(poco(text='排序'))
-        
-    try:
-        poco.wait_for_any(poco(text=app_name,type='android.widget.ImageView'))
-        poco(text=app_name,type='android.widget.TextView').click()
-    except PocoNoSuchNodeException:
-        swipe((500,1500),(500,300),duration=2) #从下到上画横线1秒
-        poco(text=app_name).click()
-        
+    while exists(Template(r"tpl1592024085302.png", record_pos=(0.431, -0.937), resolution=(1080, 2340))):
+        try:
+            print("111")
+            poco.wait_for_any(poco(text=app_name,type='android.widget.TextView').sibling(name='android.widget.FrameLayout'))
+            poco(text=app_name,type='android.widget.TextView').sibling(name='android.widget.FrameLayout').click()
+            print("222")
+        except PocoNoSuchNodeException:
+            swipe((500,1500),(500,300),duration=1) #从下到上画横线1秒
+            print("333")
+        sleep(0.5)
 
 #拍照，number为照片数        
 def take_pic(number=2):
