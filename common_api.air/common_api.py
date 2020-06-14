@@ -83,13 +83,10 @@ def selectApp(app_name):
         poco.wait_for_any(poco(text='排序'))
     while exists(Template(r"tpl1592024085302.png", record_pos=(0.431, -0.937), resolution=(1080, 2340))):
         try:
-            print("111")
             poco.wait_for_any(poco(text=app_name,type='android.widget.TextView').sibling(name='android.widget.FrameLayout'))
             poco(text=app_name,type='android.widget.TextView').sibling(name='android.widget.FrameLayout').click()
-            print("222")
         except PocoNoSuchNodeException:
             swipe((500,1500),(500,300),duration=1) #从下到上画横线1秒
-            print("333")
         sleep(0.5)
 
 #拍照，number为照片数        
