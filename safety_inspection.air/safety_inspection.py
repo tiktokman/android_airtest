@@ -322,7 +322,6 @@ if __name__ == '__main__':
     print ("完成测试")
 
  '''  
-''' 1
 
 threads = []
 
@@ -343,13 +342,12 @@ for t in threads:
 
 print ("完成测试")
 
-1 '''
+
 
 
 #home_edit
 
 #branch_test
-
 
 
 
