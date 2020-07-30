@@ -7,8 +7,8 @@ import threading
 import time
 import random
 
-#ST.PROJECT_ROOT = "D:\\airtest_script\\"
-ST.PROJECT_ROOT = "D:\\android_airtest\\"
+ST.PROJECT_ROOT = "C:\\airtest_script\\"  #公司电脑路径
+#ST.PROJECT_ROOT = "D:\\android_airtest\\"   #个人电脑路径
 from airtest.core.api import using
 
 using("login.air")
