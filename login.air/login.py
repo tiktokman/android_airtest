@@ -2,8 +2,8 @@
 __author__ = "hallo"
 
 from airtest.core.api import *
-ST.PROJECT_ROOT = "C:\\airtest_script\\"  #公司电脑路径
-#ST.PROJECT_ROOT = "D:\\android_airtest\\"   #个人电脑路径
+#ST.PROJECT_ROOT = "C:\\airtest_script\\"  #公司电脑路径
+ST.PROJECT_ROOT = "D:\\android_airtest\\"   #个人电脑路径
 from airtest.core.api import using
 using("common_api.air")
 
@@ -15,12 +15,13 @@ poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=Fa
 
 
 
-
+'''
 auto_setup(__file__)
-
+'''
 
 #完成登录 (首次打开登录页面，用户数据为空，输入账户登录，验证登陆成功后回到工作台)
 def login(username='kentestgrp10',password='12345678',enterprise='p1',real_name='kentestgrp10'):
+    poco.wait_for_any(poco(type='android.widget.EditText'))
     #遍历账号输入框，不管有没值，先置空
     for edittext in poco(type='android.widget.EditText'):
         edittext.set_text("")

@@ -7,8 +7,8 @@ import threading
 import time
 import random
 
-ST.PROJECT_ROOT = "C:\\airtest_script\\"  #公司电脑路径
-#ST.PROJECT_ROOT = "D:\\android_airtest\\"   #个人电脑路径
+#ST.PROJECT_ROOT = "C:\\airtest_script\\"  #公司电脑路径
+ST.PROJECT_ROOT = "D:\\android_airtest\\"   #个人电脑路径
 from airtest.core.api import using
 
 using("login.air")
@@ -17,11 +17,12 @@ from login import login
 using("common_api.air")
 from common_api import *
 
+
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
-
+'''
 auto_setup(__file__)
-
+'''
 
 
 #，拍照后，打开图片，定位，并退出
@@ -261,12 +262,12 @@ def object_info(object_name):
 def safetyInspection():
     
     apk = "cn.smartinspection.combine"
-    clear_app("cn.smartinspection.combine")
+    #clear_app("cn.smartinspection.combine")
 
     start_app(apk)
+    sleep(2)
     
-    
-    authApp()
+    #authApp()
 
     login('kentest50','12345678','p1','kentest50')
     
@@ -322,6 +323,7 @@ if __name__ == '__main__':
     print ("完成测试")
 
  '''  
+'''
 
 threads = []
 
@@ -341,7 +343,7 @@ for t in threads:
     t.join()
 
 print ("完成测试")
-
+'''
 
 
 
