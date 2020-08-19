@@ -6,6 +6,7 @@ from airtest.core.api import *
 import threading
 import time
 import random
+import traceback
 
 #ST.PROJECT_ROOT = "C:\\airtest_script\\"  #公司电脑路径
 ST.PROJECT_ROOT = "D:\\android_airtest\\"   #个人电脑路径
@@ -261,36 +262,40 @@ def object_info(object_name):
 #模块主程序    
 def safetyInspection():
     
-    apk = "cn.smartinspection.combine"
-    #clear_app("cn.smartinspection.combine")
+    try:
 
-    start_app(apk)
-    sleep(2)
-    
-    #authApp()
+        apk = "cn.smartinspection.combine"
+        clear_app("cn.smartinspection.combine")
 
-    login('kentest50','12345678','p1','kentest50')
-    
-    selectMode("组织架构聚合")
-    
-    selectOrg_0(org_name='公司1项目贰')
-    selectApp("安全检查") 
-    
-    
-    select_task(task_name="综合--每周--排查")
-    object_name="如题如题"
-    select_object(object_name)
-    
-    #add_qualified()
-    #add_unqualified()
-    
-    unqualified_item = add_unqualified_issue()
-    check_item = '安全员'
-    area = ['1#','第2层','2F1房']
-    repairer = 'kentest50'
-    followers = ['kentest50','kentest52','kentest54']
-    create_issue(object_name,unqualified_item,check_item,area,repairer,followers)
-    
+        start_app(apk)
+        sleep(2)
+        
+        authApp()
+
+        login('kentest50','12345678','p1','kentest50')
+        
+        selectMode("组织架构聚合")
+        
+        selectOrg_0(org_name='公司1项目贰')
+        selectApp("安全检查") 
+        
+        
+        select_task(task_name="综合--每周--排查")
+        object_name="如题如题"
+        select_object(object_name)
+        
+        #add_qualified()
+        #add_unqualified()
+        
+        unqualified_item = add_unqualified_issue()
+        check_item = '安全员'
+        area = ['1#','第2层','2F1房']
+        repairer = 'kentest50'
+        followers = ['kentest50','kentest52','kentest54']
+        create_issue(object_name,unqualified_item,check_item,area,repairer,followers)
+
+    except:
+        log("出错啦",traceback.format_exc())
         
 def networdTest():
     #网络异常登录重试

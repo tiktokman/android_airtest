@@ -12,7 +12,7 @@ if not cli_setup():
 '''
 
 if not cli_setup():
-    auto_setup(__file__, logdir="D:/log", devices=[
+    auto_setup(__file__, logdir="D:\log", devices=[
             "Android:///",
     ], project_root="D:/android_airtest")
 
@@ -24,17 +24,14 @@ from common_api import *
 
 using("safety_inspection.air")
 from safety_inspection import *
-    
-    
+       
 # script content
 print("start...")
 
 
-# generate html report
-# from airtest.report.report import simple_report
-# simple_report(__file__, logpath="C:/log")
-
 import unittest
+from airtest.report.report import simple_report
+
 
 class TestAndroid(unittest.TestCase):
     
@@ -42,7 +39,7 @@ class TestAndroid(unittest.TestCase):
         print("开始跑测试用例")
 
     def tearDown(self):
-    	
+    	simple_report(filepath="androidtest.py", logpath="D:\log", logfile="log.txt", output="D:\log\log.html")
     	print ("结束一个测试")
     def test_print(self):
     	safetyInspection()
@@ -52,3 +49,7 @@ class TestAndroid(unittest.TestCase):
         
 if __name__ == '__main__':
     unittest.main()
+# generate html report
+# 命令行生成报告  airtest report androidtest.py --log_root D:\log\ --outfile D:\log\log.html --lang zh --plugin poco.utils.airtest.report
+#from airtest.report.report import simple_report
+#simple_report(__file__)
