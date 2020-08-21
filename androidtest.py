@@ -4,6 +4,11 @@ __author__ = "hallo"
 from airtest.core.api import *
 from airtest.cli.parser import cli_setup
 
+import configparser
+config = configparser.ConfigParser()
+config.read("config.ini", encoding="utf-8")
+
+
 '''
 if not cli_setup():
     auto_setup(__file__, logdir="C:/log", devices=[
@@ -25,9 +30,6 @@ from common_api import *
 using("safety_inspection.air")
 from safety_inspection import *
        
-# script content
-print("start...")
-
 
 import unittest
 from airtest.report.report import simple_report
