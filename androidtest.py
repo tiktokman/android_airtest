@@ -9,17 +9,12 @@ config = configparser.ConfigParser()
 config.read("config.ini", encoding="utf-8")
 
 
-'''
-if not cli_setup():
-    auto_setup(__file__, logdir="C:/log", devices=[
-            "Android:///",
-    ], project_root="C:/airtest_script")
-'''
+
 
 if not cli_setup():
-    auto_setup(__file__, logdir="D:\log", devices=[
+    auto_setup(__file__, logdir=config.get("path", "logdir"), devices=[
             "Android:///",
-    ], project_root="D:/android_airtest")
+    ], project_root=config.get("path", "project_root"))
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
@@ -41,7 +36,7 @@ class TestAndroid(unittest.TestCase):
         print("开始跑测试用例")
 
     def tearDown(self):
-    	simple_report(filepath="androidtest.py", logpath="D:\log", logfile="log.txt", output="D:\log\log.html")
+    	simple_report(filepath="androidtest.py", logpath=config.get("path", "logdir"), logfile="log.txt", output="D:\log\log.html")
     	print ("结束一个测试")
     def test_print(self):
     	safetyInspection()
