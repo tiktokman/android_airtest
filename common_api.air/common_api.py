@@ -101,9 +101,9 @@ def take_pic(number=2):
         sleep(2)
         swipe((200,1000),(1000,1000),duration=1) #从左到右画横线1秒
         sleep(1)
-        swipe((500,700),(500,1500),duration=1) #从上到下画横线1秒
+        swipe((200,1200),(1000,1000),duration=1) #从上到下画横线1秒
         
-        touch(Template(r"tpl1583142649056.png", record_pos=(0.439, -0.946), resolution=(1080, 2340)))
+        touch(Template(r"tpl1599045734552.png", record_pos=(0.281, 0.867), resolution=(1080, 2340)))
         sleep(1)
 
         
