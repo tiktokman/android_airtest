@@ -5,11 +5,13 @@ from airtest.core.api import *
 from poco.exceptions import PocoNoSuchNodeException
 import random
 
+
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 
-
+'''
 auto_setup(__file__)
+'''
 
 #首次安装启动、获取权限
 def authApp():
@@ -111,7 +113,7 @@ def search_check_item(check_item):
 
     poco.wait_for_any(poco(desc='搜索'))
     poco(desc='搜索').click() 
-    check_item = '安全员'
+    #check_item = '安全员'
     text(check_item,enter=False)
     sleep(1)
     item_match = '.*' + check_item + '.*$' #匹配包含item_match的字符串
@@ -184,23 +186,4 @@ def search_followers(followers):  #followers为参与人列表
     poco(text='确定').click()
 
     
-    
-'''      
-selectMode('组织架构聚合')
-selectTab('工作台')
-selectOrg_0(org_name='kentest项目10')
-'''
-    
-'''
 
-from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
-
-poco("com.tencent.mm:id/dlh").setattr('checkable',True)
-
-
-repairer ='kentest52'
-poco(text='整改负责人').click()
-search_repairer(repairer)
-
-'''
