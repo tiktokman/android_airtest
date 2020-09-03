@@ -36,13 +36,14 @@ class TestAndroid(unittest.TestCase):
         print("开始跑测试用例")
 
     def tearDown(self):
-    	simple_report(filepath="androidtest.py", logpath=config.get("path", "logdir"), logfile="log.txt", output="D:\log\log.html")
+    	simple_report(filepath="androidtest.py", logpath=config.get("path", "logdir"), logfile=config.get("filename","logfile"), output=config.get("filename","output"))
     	print ("结束一个测试")
     def test_print(self):
-    	safetyInspection()
+    	#safetyInspection()
+        print ("结束一个测试")
     def test_stop(self):
-
-        stop_app('cn.smartinspection.combine')
+        print ("结束一个测试")
+        #stop_app('cn.smartinspection.combine')
         
 if __name__ == '__main__':
     unittest.main()
