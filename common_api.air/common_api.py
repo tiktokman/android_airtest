@@ -165,8 +165,6 @@ def search_repairer(repairer):
     #repairer ='kentest50'
     
     text(repairer,enter=False)
-    print(poco(text=repairer,type='android.widget.TextView').attr('touchable'))
-    print(poco(text=repairer,type='android.widget.TextView').attr('text'))
     sleep(1)
     poco(text=repairer,type='android.widget.TextView').click()
 
