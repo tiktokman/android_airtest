@@ -38,9 +38,8 @@ class TestAndroid(unittest.TestCase):
     def tearDown(self):
     	simple_report(filepath="androidtest.py", logpath=config.get("path", "logdir"), logfile=config.get("filename","logfile"), output=config.get("filename","output"))
     	print ("结束一个测试")
-    def test_print(self):
-    	#safetyInspection()
-        print ("结束一个测试")
+    def test_safet(self):
+    	safetyInspection()
     def test_stop(self):
         print ("结束一个测试")
         #stop_app('cn.smartinspection.combine')
