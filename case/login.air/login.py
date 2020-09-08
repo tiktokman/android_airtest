@@ -2,8 +2,8 @@
 __author__ = "hallo"
 
 from airtest.core.api import *
-#ST.PROJECT_ROOT = "C:\\airtest_script\\"  #公司电脑路径
-ST.PROJECT_ROOT = "D:\\android_airtest\\"   #个人电脑路径
+
+ST.PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 from airtest.core.api import using
 using("common_api.air")
 
