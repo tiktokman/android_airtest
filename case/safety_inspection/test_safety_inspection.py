@@ -13,18 +13,11 @@ sys.path.append(BASE_DIR)
 
 from login.login import *
 from common_api.common_api import *
-'''
 
-ST.PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+import unittest
+from airtest.report.report import simple_report
 
-from airtest.core.api import using
 
-using("login.air")
-from login import login
-
-using("common_api.air")
-from common_api import *
-'''
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
@@ -309,7 +302,8 @@ def networdTest():
     while poco(text="重试"):
         poco(text="重试").click()
         sleep(2)
-    
+
+
 
 '''
 
@@ -359,7 +353,23 @@ print ("完成测试")
 
 #safetyInspection()
 
+print("安全")
 
+class TestSafety(unittest.TestCase):
+    
+    def setUp(self):
+        print("开始跑一个用例")
+
+    def tearDown(self):
+        print ("结束一个测试")
+    def test_safet(self):
+        safetyInspection()
+    def test_stop(self):
+        print ("结束app运行")
+        stop_app('cn.smartinspection.combine')
+        
+if __name__ == '__main__':
+    unittest.main()
 
 
 
