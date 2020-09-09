@@ -5,16 +5,17 @@ from airtest.core.api import *
 from poco.exceptions import PocoNoSuchNodeException
 import random
 
-
+'''
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 
-'''
+
 auto_setup(__file__)
 '''
 
 #首次安装启动、获取权限
 def authApp():
+    sleep(1)
     wait(Template(r"tpl1586150637555.png", record_pos=(0.041, 0.866), resolution=(1080, 2340)))
 
 

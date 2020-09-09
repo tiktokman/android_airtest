@@ -7,6 +7,9 @@ import random
 import traceback
 import os
 import sys
+import unittest
+from airtest.report.report import simple_report
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR)
@@ -14,16 +17,15 @@ sys.path.append(BASE_DIR)
 from login.login import *
 from common_api.common_api import *
 
-import unittest
-from airtest.report.report import simple_report
+
 
 
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
-'''
+
 auto_setup(__file__)
-'''
+
 
 
 #，拍照后，打开图片，定位，并退出
@@ -263,7 +265,7 @@ def object_info(object_name):
 def safetyInspection():
     
     try:
-
+        
         apk = "cn.smartinspection.combine"
         clear_app("cn.smartinspection.combine")
 
@@ -351,11 +353,8 @@ for t in threads:
 print ("完成测试")
 '''
 
-#safetyInspection()
 
-print("安全")
-
-class TestSafety(unittest.TestCase):
+class TestSafetyinspection(unittest.TestCase):
     
     def setUp(self):
         print("开始跑一个用例")
@@ -366,7 +365,7 @@ class TestSafety(unittest.TestCase):
         safetyInspection()
     def test_stop(self):
         print ("结束app运行")
-        stop_app('cn.smartinspection.combine')
+        #stop_app('cn.smartinspection.combine')
         
 if __name__ == '__main__':
     unittest.main()

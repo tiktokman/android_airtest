@@ -18,8 +18,8 @@ poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=Fa
 
 
 
-test_dir = r'C:\airtest_script\case'
-discover = unittest.defaultTestLoader.discover(test_dir, pattern='test_safety_*.py',top_level_dir=None)
+test_dir = project_root
+discover = unittest.defaultTestLoader.discover(test_dir, pattern='test_*.py',top_level_dir=None)
 
 if __name__ == '__main__':
     runner = unittest.TextTestRunner()
