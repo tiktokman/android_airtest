@@ -5,8 +5,15 @@ import threading
 import time
 import random
 import traceback
+import os
+import sys
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_DIR)
 
+from login.login import *
+from common_api.common_api import *
+'''
 
 ST.PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
@@ -17,7 +24,7 @@ from login import login
 
 using("common_api.air")
 from common_api import *
-
+'''
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)

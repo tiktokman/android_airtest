@@ -2,13 +2,21 @@
 __author__ = "hallo"
 
 from airtest.core.api import *
+import os
+import sys
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_DIR)
+
+'''
 ST.PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 from airtest.core.api import using
 using("common_api.air")
 
 from common_api import selectTab
-
+'''
+from login.login import *
+from common_api.common_api import *
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)

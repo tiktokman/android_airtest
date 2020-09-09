@@ -383,8 +383,7 @@ photo_add_issue()
 #wake()
 
 
-
-shell("input keyevent 223")
+#put keyevent 223")
 
 
 
