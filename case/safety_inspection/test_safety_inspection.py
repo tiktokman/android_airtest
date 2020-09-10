@@ -362,10 +362,9 @@ class TestSafetyinspection(unittest.TestCase):
     def tearDown(self):
         print ("结束一个测试")
     def test_safet(self):
+        print("111")
         safetyInspection()
-    def test_stop(self):
-        print ("结束app运行")
-        #stop_app('cn.smartinspection.combine')
+        print("222")
         
 if __name__ == '__main__':
     unittest.main()
