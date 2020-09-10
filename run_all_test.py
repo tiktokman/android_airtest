@@ -25,4 +25,4 @@ if __name__ == '__main__':
     runner = unittest.TextTestRunner()
     print (discover)
     runner.run(discover)
-    simple_report(filepath="run_all_test.py", logpath=logdir, logfile=logfile, output=output)
+    #simple_report(filepath="run_all_test.py", logpath=logdir, logfile=logfile, output=output)

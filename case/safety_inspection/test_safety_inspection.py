@@ -1,5 +1,14 @@
 # -*- encoding=utf8 -*-
-__author__ = "hallo"
+__author__ = "zijie"
+__title__ = "安卓端安全检查模块回归测试报告"
+__DESC__ = """
+回归测试内容：
+1.
+2.
+3.
+"""
+
+
 from airtest.core.api import *
 import threading
 import time
@@ -9,6 +18,7 @@ import os
 import sys
 import unittest
 from airtest.report.report import simple_report
+from init_setting import *
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,9 +33,9 @@ from common_api.common_api import *
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
-
+'''
 auto_setup(__file__)
-
+'''
 
 
 #，拍照后，打开图片，定位，并退出
@@ -356,15 +366,18 @@ print ("完成测试")
 
 class TestSafetyinspection(unittest.TestCase):
     
+    @classmethod
+    def tearDownClass(cls):
+        simple_report(filepath="run_all_test.py", logpath=logdir, logfile=logfile, output=output)
+
     def setUp(self):
         print("开始跑一个用例")
 
     def tearDown(self):
         print ("结束一个测试")
     def test_safet(self):
-        print("111")
         safetyInspection()
-        print("222")
+
         
 if __name__ == '__main__':
     unittest.main()

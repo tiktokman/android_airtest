@@ -16,5 +16,5 @@ logdir = os.path.dirname(os.path.realpath(__file__))+ '\log'
 logfile = "log.txt"
 
 #输出报告文件
-output= os.path.dirname(os.path.realpath(__file__))+r"\report\log.html"
+output= os.path.dirname(os.path.realpath(__file__))+r"\report\安全检查回归报告.html"
 

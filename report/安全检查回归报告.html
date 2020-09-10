@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>Airtest Report </title>
+    
+    <!--[if lt IE 9]>
+    <script src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="C:/virtualenv/airtest/lib/site-packages/airtest/report/css/report.css" rel="stylesheet">
+
+    <script src="C:/virtualenv/airtest/lib/site-packages/airtest/report/js/jquery-1.10.2.min.js"></script>
+    <script src="C:/virtualenv/airtest/lib/site-packages/airtest/report/js/jquery-lang.js" charset="utf-8" type="text/javascript"></script>
+    <script src="C:/virtualenv/airtest/lib/site-packages/airtest/report/js/langpack/zh_CN.js" charset="utf-8" type="text/javascript"></script>
+    <script src="C:/virtualenv/airtest/lib/site-packages/airtest/report/js/lazyload.js" charset="utf-8" type="text/javascript"></script>
+    <script type="text/javascript">
+      data = {"steps": [{"title": "clear_app", "time": 1599735013.5691319, "code": {"name": "clear_app", "args": [{"key": "package", "value": "cn.smartinspection.combine"}]}, "screen": {"src": null, "rect": [], "pos": [], "vector": [], "confidence": null}, "desc": null, "traceback": null, "assert": null}, {"title": "start_app", "time": 1599735014.1554043, "code": {"name": "start_app", "args": [{"key": "package", "value": "cn.smartinspection.combine"}, {"key": "activity", "value": null}]}, "screen": {"src": null, "rect": [], "pos": [], "vector": [], "confidence": null}, "desc": null, "traceback": null, "assert": null}, {"title": "Sleep", "time": 1599735016.15627, "code": {"name": "sleep", "args": [{"key": "secs", "value": 2}]}, "screen": {"src": null, "rect": [], "pos": [], "vector": [], "confidence": null}, "desc": "Wait for 2 seconds", "traceback": null, "assert": null}, {"title": "Sleep", "time": 1599735017.1567032, "code": {"name": "sleep", "args": [{"key": "secs", "value": 1}]}, "screen": {"src": null, "rect": [], "pos": [], "vector": [], "confidence": null}, "desc": "Wait for 1 seconds", "traceback": null, "assert": null}, {"title": "Wait", "time": 1599735022.6697474, "code": {"name": "wait", "args": [{"key": "v", "value": {"filename": "C:\\airtest_script\\case\\common_api\\tpl1586150637555.png", "_filepath": "C:\\airtest_script\\case\\common_api\\tpl1586150637555.png", "threshold": 0.7, "target_pos": 5, "record_pos": [0.041, 0.866], "resolution": [1080, 2340], "rgb": false, "__class__": "Template"}, "image": "C:\\airtest_script\\case\\common_api\\tpl1586150637555.png", "resolution": [898, 129]}, {"key": "timeout", "value": null}, {"key": "interval", "value": 0.5}, {"key": "intervalfunc", "value": null}]}, "screen": {"src": "C:\\airtest_script\\log\\1599735022352.jpg", "rect": [{"left": 135, "top": 2041, "width": 896, "height": 127}], "pos": [[583, 2104]], "vector": [], "confidence": 0.9092852175235748, "resolution": [1080, 2340], "_filepath": "C:\\airtest_script\\log\\1599735022352.jpg", "thumbnail": "C:\\airtest_script\\log\\1599735022352_small.jpg"}, "desc": "Wait for target image to appear", "traceback": null, "assert": null}, {"title": "\u51fa\u9519\u5566", "time": 1599735022.6747067, "code": null, "screen": null, "desc": null, "traceback": "Traceback (most recent call last):\n  File \"C:\\airtest_script\\case\\safety_inspection\\test_safety_inspection.py\", line 285, in safetyInspection\n    authApp()\n  File \"C:\\airtest_script\\case\\common_api\\common_api.py\", line 21, in authApp\n    while poco(text=\"\u5141\u8bb8\"):\nNameError: name 'poco' is not defined\n", "assert": null}], "name": ".", "scale": 0.5, "test_result": false, "run_end": 1599735022.6747067, "run_start": 1599735013.030972, "static_root": "C:/virtualenv/airtest/lib/site-packages/airtest/report/", "lang": "en", "records": [], "info": {"name": "run_all_test.py", "path": "run_all_test.py", "author": "hallo", "title": "", "desc": ""}, "log": "..\\log\\log.txt", "console": ""}
+      lang = new Lang();
+      lang.init({
+        defaultLang: 'en',
+        currentLang: 'en'
+      });
+    </script>
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <div class="row">
+        
+        <div id="main" class="main col-md-12">
+          <div id="back_multi"></div>
+          <h1 class="title">Airtest Report </h1>
+          
+          <div class="summary" >
+
+            <div class="show-horizontal">
+              <div class="info info1">
+                <div class="info-left">
+                  <img id='result-img' />
+                </div>
+                <div class="info-right">
+                  <div class="info-title"><span lang='en'>Airtest Report</span>
+                    <label id='result-desc' lang="en"></label>
+                  </div>
+                  <div class="info-content">
+                    <div class='info-sub start'></div>
+                    <div class='info-sub time'></div>
+                  </div>
+                  <div class="info-toal">
+                    <div class="info-step">
+                      <span class="info-name" lang="en">Steps: </span>
+                      <span class="info-value">6</span>
+                    </div>
+                    <div class="info-time">
+                      <span class="info-name" lang="en">Time: </span>
+                      <span class="info-value duration">xxx</span>
+                    </div>
+                    
+                    
+                    <div class="info-log">
+                      <span class="info-name" lang="en">Log: </span>
+                      <span class="info-value log">
+                        <a href="..\log\log.txt" target="_blank" download="log.txt">log.txt <img src="C:/virtualenv/airtest/lib/site-packages/airtest/report/image/download_log.svg" /></a>
+                      </span>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div class="info info2">
+                <div class="info-left"></div>
+                <div class="info-right">
+                  <div class="info-title"><span lang='en'>Executors</span></div>
+                  <div class="info-content">
+                    <div class="info-execute">
+                      <div class="circle-img"></div>
+                      
+                        <div class="info-name"><span lang="en">Author:</span> hallo</div>
+                      
+                    </div>
+                    <div class="info-execute">
+                      <div class="circle-img"></div>
+                      <div class="info-file" title="run_all_test.py">run_all_test.py
+                        <img id="copy_path" path="run_all_test.py" title="copy file path to clipboard" src="C:/virtualenv/airtest/lib/site-packages/airtest/report/image/copy.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+          <div class="device" id='device'>
+          </div>
+          <!-- 可以额外显示自定义模块，支持插入Html内容 -->
+          
+          <div class="gallery">
+            <div class="info-title"><span lang="en">Quick view</span></div>
+            <div class="content">
+            </div>
+          </div>
+
+          <!--单步-->
+          
+          
+          <div class="steps">
+            <div class="content">
+              <div class="steps-head">
+                <div class="head-left">
+                  <div class="order" id='order'><span lang="en">order</span></div>
+                  <div class="order" id='duration'><span lang="en">duration</span></div>
+                  <div class="order" id='status'><span lang="en">status</span></div>
+                </div>
+                <div class="head-right">
+                  <span lang="en" class="jump-wrong" id='jump-wrong'>Jump to wrong step</span>
+                  <span lang="en">Filter by:</span>
+                  <span class="filters">
+                    <span lang="en" class="filter" id="all" alt="show all steps">All</span>
+                    <span lang="en" class="filter" id='success' alt="show success steps only">Success</span>
+                    <span lang="en" class="filter" id='fail' alt="show failed steps only">Failed</span>
+                    <span lang="en" class="filter" id="assert" alt="show steps with assertion only">Assert</span>
+                  </span>
+                </div>
+              </div>
+              <div class="steps-content">
+                <div class="step-left" id='step-left'>
+                  <div class="step-list"></div>
+                  <div id="pageTool"></div>
+                </div>
+                <div class="step-right" id='step-right'></div>
+              </div>
+            </div>
+            
+            </div>
+        </div>
+        
+      
+      <div class="footer">
+        <div class="footer-content">
+          <div class="foo">
+            <div class="interfaces">
+              <a class="icon" href="https://github.com/AirtestProject/Airtest"  target="_blank">
+                <img src="C:/virtualenv/airtest/lib/site-packages/airtest/report/image/Airtest.png" alt="airtest">
+              </a>
+              <a class="icon" href="https://github.com/AirtestProject/poco"  target="_blank">
+                <img src="C:/virtualenv/airtest/lib/site-packages/airtest/report/image/poco.png" alt="Poco">
+              </a>
+            </div>
+          </div>
+          <div class="foo">
+            <div class="apps">
+              <a class="icon ide" href="http://airtest.netease.com/"  target="_blank">
+                <img src="C:/virtualenv/airtest/lib/site-packages/airtest/report/image/AirtestIDE.png" alt="AirtestIDE">
+              </a>
+              <a class="icon" href="https://airlab.163.com/"  target="_blank">
+                <img src="C:/virtualenv/airtest/lib/site-packages/airtest/report/image/AirLab.png" alt="AirLab">
+              </a>
+            </div>
+          </div>
+          <div class="foo">
+            <div class="corp">
+                <img src="C:/virtualenv/airtest/lib/site-packages/airtest/report/image/netease.png" alt="NetEase">
+                <span lang="en">© 1997 - 2019 NetEase, Inc. All Rights Reserved.</span>
+            </div>
+          </div>
+        </div>
+      </div> 
+      
+      </div>
+      <!-- 录屏 -->
+      <div class="row gif-wrap show">
+          <div class="menu">
+            <div class="pattern pattern1">
+              <div class="minimize">
+                <img title="minimize" src="C:/virtualenv/airtest/lib/site-packages/airtest/report/image/minimize.svg" />
+              </div>
+              <div class="close">
+                <img title="close" src="C:/virtualenv/airtest/lib/site-packages/airtest/report/image/close.svg" />
+              </div>
+            </div>
+            <div class="pattern pattern2">
+              <div class="maximize">
+                <img title="maximize" src="C:/virtualenv/airtest/lib/site-packages/airtest/report/image/maximize.svg" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            
+          </div>
+        </div>
+        <!-- max pic -->
+      <div id='magnify' class="mask hide">
+        <div class="content">
+        </div>
+      </div>
+    </div>
+
+  <link href="C:/virtualenv/airtest/lib/site-packages/airtest/report/css/monokai_sublime.min.css" rel="stylesheet">
+  <script src="C:/virtualenv/airtest/lib/site-packages/airtest/report/js/highlight.min.js"></script>
+  <script type="text/javascript" src="C:/virtualenv/airtest/lib/site-packages/airtest/report/js/paging.js"></script>
+  <script src="C:/virtualenv/airtest/lib/site-packages/airtest/report/js/report.js"></script>
+</body>
+</html>
