@@ -28,14 +28,11 @@ from login.login import *
 from common_api.common_api import *
 
 
-
-
-
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
-'''
+
 auto_setup(__file__)
-'''
+
 
 
 #，拍照后，打开图片，定位，并退出
@@ -368,7 +365,7 @@ class TestSafetyinspection(unittest.TestCase):
     
     @classmethod
     def tearDownClass(cls):
-        simple_report(filepath="run_all_test.py", logpath=logdir, logfile=logfile, output=output)
+        simple_report(filepath=os.path.realpath(__file__), logpath=safety_logdir, logfile=logfile, output=safety_output)
 
     def setUp(self):
         print("开始跑一个用例")

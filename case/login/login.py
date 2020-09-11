@@ -21,11 +21,8 @@ from common_api.common_api import *
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 
-
-
-'''
 auto_setup(__file__)
-'''
+
 
 #完成登录 (首次打开登录页面，用户数据为空，输入账户登录，验证登陆成功后回到工作台)
 def login(username='kentestgrp10',password='12345678',enterprise='p1',real_name='kentestgrp10'):

@@ -7,15 +7,16 @@ import unittest
 from airtest.report.report import simple_report
 from init_setting import *
 
+'''
 if not cli_setup():
     auto_setup(__file__, logdir=logdir, devices=[
             "Android:///",
-    ], project_root=project_root)
+    ])
 
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
-
+'''
 
 
 test_dir = project_root
