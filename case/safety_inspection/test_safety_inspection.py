@@ -31,7 +31,8 @@ from common_api.common_api import *
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 
-auto_setup(__file__)
+auto_setup(__file__, logdir=safety_logdir, devices=[
+            "Android:///"])
 
 
 
@@ -375,7 +376,7 @@ class TestSafetyinspection(unittest.TestCase):
     def test_safet(self):
         safetyInspection()
 
-        
+
 if __name__ == '__main__':
     unittest.main()
 
