@@ -4,17 +4,13 @@ __author__ = "hallo"
 from airtest.core.api import *
 from airtest.cli.parser import cli_setup
 
-import configparser
-config = configparser.ConfigParser()
-config.read("config.ini", encoding="utf-8")
-
-
-
+from init_setting import *
 
 if not cli_setup():
-    auto_setup(__file__, logdir=config.get("path", "logdir"), devices=[
+    auto_setup(__file__, logdir=logdir, devices=[
             "Android:///",
-    ], project_root=config.get("path", "project_root"))
+    ], project_root=project_root)
+
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
@@ -36,13 +32,13 @@ class TestAndroid(unittest.TestCase):
         print("开始跑测试用例")
 
     def tearDown(self):
-    	simple_report(filepath="androidtest.py", logpath=config.get("path", "logdir"), logfile="log.txt", output="D:\log\log.html")
-    	print ("结束一个测试")
-    def test_print(self):
+        simple_report(filepath="androidtest.py", logpath=logdir, logfile=logfile, output=output)
+        print ("结束一个测试")
+    def test_safet(self):
     	safetyInspection()
     def test_stop(self):
-
-        stop_app('cn.smartinspection.combine')
+        print ("结束一个测试")
+        #stop_app('cn.smartinspection.combine')
         
 if __name__ == '__main__':
     unittest.main()
