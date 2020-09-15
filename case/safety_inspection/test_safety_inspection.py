@@ -79,10 +79,10 @@ def check_item():
         if item.child().child().get_text() == check_item[anyint].child().child().get_text():
             false_item = item.child().child().get_text().rstrip(" icon")  #检查项的值（去掉右边的icon）
             print (false_item)
-            item.child().child().set_text("1")  #将值设短，避免影响组件顺序
+            item.child().child().set_text("检查项设值")  #将值设短，避免影响组件顺序
             item.child().child()[2].click() #点击×
         else:
-            item.child().child().set_text("1")  #将值设短，避免影响组件顺序
+            item.child().child().set_text("检查项设值")  #将值设短，避免影响组件顺序
             item.child().child()[1].click() #点击√ 
     return false_item
     
@@ -274,8 +274,7 @@ def safetyInspection():
     
     try:
         
-        apk = "cn.smartinspection.combine"
-        clear_app("cn.smartinspection.combine")
+        clear_app(apk)
 
         start_app(apk)
         sleep(2)
@@ -294,15 +293,23 @@ def safetyInspection():
         object_name="如题如题"
         select_object(object_name)
         
-        #add_qualified()
-        #add_unqualified()
+        #新增合格检查
+        add_qualified()
+        #新增不合格检查，不发起问题
+        add_unqualified()
         
+        #新增不合格检查，并发起问题
         unqualified_item = add_unqualified_issue()
         check_item = '安全员'
         area = ['1#','第2层','2F1房']
         repairer = 'kentest50'
         followers = ['kentest50','kentest52','kentest54']
         create_issue(object_name,unqualified_item,check_item,area,repairer,followers)
+
+        #todo_list
+        #进入已过期任务
+
+        #进入无权限检查任务
 
     except:
         log("出错啦",traceback.format_exc())
