@@ -243,6 +243,9 @@ def select_task(task_name):
     #等待刷新任务列表
     poco.wait_for_any(poco(type="androidx.recyclerview.widget.RecyclerView"))#等待任务列表
     sleep(1)
+    if exists(Template(r"tpl1600334973891.png", record_pos=(0.447, -0.807), resolution=(1080, 2340))):
+        touch(Template(r"tpl1600334973891.png", record_pos=(0.447, -0.807), resolution=(1080, 2340)))
+    
     #选择任务检查
     poco(text="请输入关键词").click()
     text(task_name,enter=False)
@@ -255,7 +258,8 @@ def select_object(object_name):
     #等待刷新对象列表
     poco.wait_for_any(poco(type="androidx.recyclerview.widget.RecyclerView"))#等待对象列表
     wait(Template(r"tpl1594828840466.png", threshold=0.8, record_pos=(0.344, -0.673), resolution=(1080, 2340)))
-
+    if exists(Template(r"tpl1600334973891.png", record_pos=(0.447, -0.807), resolution=(1080, 2340))):
+        touch(Template(r"tpl1600334973891.png", record_pos=(0.447, -0.807), resolution=(1080, 2340)))
     sleep(1)
     #选择检查对象
     poco(text="请输入关键词").click()
@@ -272,22 +276,7 @@ def object_info(object_name):
 #模块主程序    
 def safetyInspection():
     
-    try:
-        
-        clear_app(apk)
-
-        start_app(apk)
-        sleep(2)
-        
-        authApp()
-
-        login('kentest50','12345678','p1','kentest50')
-        
-        selectMode("组织架构聚合")
-        
-        selectOrg_0(org_name='公司1项目贰')
-        selectApp("安全检查") 
-        
+    try:       
         
         select_task(task_name="综合--每周--排查")
         object_name="如题如题"
@@ -370,6 +359,21 @@ print ("完成测试")
 
 
 class TestSafetyinspection(unittest.TestCase):
+    @classmethod
+    def tearDownClass(cls):
+        clear_app(apk)
+
+        start_app(apk)
+        sleep(2)
+        
+        authApp()
+
+        login('kentest50','12345678','p1','kentest50')
+        
+        selectMode("组织架构聚合")
+        
+        selectOrg_0(org_name='公司1项目贰')
+        selectApp("安全检查")        
     
     @classmethod
     def tearDownClass(cls):
