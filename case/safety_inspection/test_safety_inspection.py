@@ -295,13 +295,58 @@ def safetyInspection():
         followers = ['kentest50','kentest52','kentest54']
         create_issue(object_name,unqualified_item,check_item,area,repairer,followers)
 
-        #todo_list
-        #进入已过期任务
+        #返回任务列表
+        poco(name='转到上一层级').click()
+        sleep(1)
+        poco(name='转到上一层级').click()
+        
+    except:
+        log("出错啦",traceback.format_exc())
 
-        #进入无权限检查任务
+#已过期任务
+def overdue_task():
+    
+    try:       
+        
+        select_task(task_name="添加按天排查")
+        assert_exists(Template(r"tpl1600402250485.png", record_pos=(-0.157, -0.681), resolution=(1080, 2340)), "检查已结束")
+
+        
+        object_name="消防箱A啊"
+        select_object(object_name)
+        
+        assert_exists(Template(r"tpl1600402343805.png", rgb=True, record_pos=(0.014, 0.887), resolution=(1080, 2340)), "新增检查记录按钮置灰")
+        
+        #返回任务列表
+        poco(name='转到上一层级').click()
+        sleep(1)
+        poco(name='转到上一层级').click()        
 
     except:
         log("出错啦",traceback.format_exc())
+
+#无权限检查任务
+def no_permission():
+    
+    try:       
+        
+        select_task(task_name="火车排查")
+        
+        object_name="火车"
+        select_object(object_name)
+        
+        assert_not_exists(Template(r"tpl1600402733024.png", record_pos=(-0.004, 0.879), resolution=(1080, 2340)), "无新增检查记录按钮")
+
+        
+        #返回任务列表
+        poco(name='转到上一层级').click()
+        sleep(1)
+        poco(name='转到上一层级').click()        
+
+    except:
+        log("出错啦",traceback.format_exc())
+
+
         
 def networdTest():
     #网络异常登录重试
@@ -360,7 +405,7 @@ print ("完成测试")
 
 class TestSafetyinspection(unittest.TestCase):
     @classmethod
-    def tearDownClass(cls):
+    def setUpClass(cls):
         clear_app(apk)
 
         start_app(apk)
@@ -384,10 +429,14 @@ class TestSafetyinspection(unittest.TestCase):
 
     def tearDown(self):
         print ("结束一个测试")
-    def test_safet(self):
+    def test_01_safety(self):
         safetyInspection()
+    def test_02_overdue(self):
+        overdue_task()
+    def test_03_noPermission(self):
+        no_permission()
 
-
+        
 if __name__ == '__main__':
     unittest.main()
 
