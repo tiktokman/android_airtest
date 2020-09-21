@@ -46,16 +46,16 @@ if __name__ == '__main__':
 	t1 = threading.Thread(target=run_case)
 	threads.append(t1)
 
+	#https://blog.csdn.net/Longtermevolution/article/details/105314149
 	t2 = threading.Thread(target=networdTest)
 	threads.append(t2)
+	t2.setDaemon(True)  #线程t2无限循环判断，需要设置为守护线程(且不能调用join方法，join方法会阻塞父线程)，否则无法停止
+
+	t1.start()     #t1为非守护线程，父线程执行完会等待所有非守护线程执行完才退出父线程，不管守护线程是否执行完（子线程未调用join的情况下）
+	t2.start()
+
+	print("开始测试")
 
 
-	for t in threads:
-	    t.setDaemon(True)
-	    t.start()
-
-	for t in threads:
-	    print (t)
-	    t.join()
 	    
 	#simple_report(filepath="run_all_test.py", logpath=logdir, logfile=logfile, output=output)
