@@ -18,12 +18,20 @@ from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 '''
 
-
+#设置用例路径，查找模块名称，导入匹配用例
 test_dir = project_root
 discover = unittest.defaultTestLoader.discover(test_dir, pattern='test_*.py',top_level_dir=None)
 
 if __name__ == '__main__':
-    runner = unittest.TextTestRunner()
-    print (discover)
-    runner.run(discover)
-    #simple_report(filepath="run_all_test.py", logpath=logdir, logfile=logfile, output=output)
+	"""清理日志文件"""
+	'''
+	fileDir = os.path.dirname(os.path.realpath(__file__)) +'\log'    
+	for root, dirs, files in os.walk(fileDir):  
+		for name in files:
+			os.remove(os.path.join(root, name))
+	print ("完成日志清理")
+	'''
+	runner = unittest.TextTestRunner()
+	print (discover)
+	runner.run(discover)
+	#simple_report(filepath="run_all_test.py", logpath=logdir, logfile=logfile, output=output)

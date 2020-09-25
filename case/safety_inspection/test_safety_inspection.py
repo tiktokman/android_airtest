@@ -79,10 +79,10 @@ def check_item():
         if item.child().child().get_text() == check_item[anyint].child().child().get_text():
             false_item = item.child().child().get_text().rstrip(" icon")  #检查项的值（去掉右边的icon）
             print (false_item)
-            item.child().child().set_text("1")  #将值设短，避免影响组件顺序
+            item.child().child().set_text("检查项设值")  #将值设短，避免影响组件顺序
             item.child().child()[2].click() #点击×
         else:
-            item.child().child().set_text("1")  #将值设短，避免影响组件顺序
+            item.child().child().set_text("检查项设值")  #将值设短，避免影响组件顺序
             item.child().child()[1].click() #点击√ 
     return false_item
     
@@ -243,6 +243,9 @@ def select_task(task_name):
     #等待刷新任务列表
     poco.wait_for_any(poco(type="androidx.recyclerview.widget.RecyclerView"))#等待任务列表
     sleep(1)
+    if exists(Template(r"tpl1600334973891.png", record_pos=(0.447, -0.807), resolution=(1080, 2340))):
+        touch(Template(r"tpl1600334973891.png", record_pos=(0.447, -0.807), resolution=(1080, 2340)))
+    
     #选择任务检查
     poco(text="请输入关键词").click()
     text(task_name,enter=False)
@@ -255,14 +258,15 @@ def select_object(object_name):
     #等待刷新对象列表
     poco.wait_for_any(poco(type="androidx.recyclerview.widget.RecyclerView"))#等待对象列表
     wait(Template(r"tpl1594828840466.png", threshold=0.8, record_pos=(0.344, -0.673), resolution=(1080, 2340)))
-
+    if exists(Template(r"tpl1600334973891.png", record_pos=(0.447, -0.807), resolution=(1080, 2340))):
+        touch(Template(r"tpl1600334973891.png", record_pos=(0.447, -0.807), resolution=(1080, 2340)))
     sleep(1)
     #选择检查对象
     poco(text="请输入关键词").click()
     text(object_name,enter=False)
     object_match = '^' + object_name + '.*$'  #匹配以object_name开头的字符串
     poco(textMatches=object_match,type="android.widget.TextView").parent().click()
-    poco.wait_for_all([poco(text=object_name),poco(text='检查记录'),poco(text='新增检查记录')])
+    poco.wait_for_all([poco(text=object_name),poco(text='检查记录')])
     object_info(object_name)
 #查看检查对象信息    
 def object_info(object_name):
@@ -272,31 +276,18 @@ def object_info(object_name):
 #模块主程序    
 def safetyInspection():
     
-    try:
-        
-        apk = "cn.smartinspection.combine"
-        clear_app("cn.smartinspection.combine")
-
-        start_app(apk)
-        sleep(2)
-        
-        authApp()
-
-        login('kentest50','12345678','p1','kentest50')
-        
-        selectMode("组织架构聚合")
-        
-        selectOrg_0(org_name='公司1项目贰')
-        selectApp("安全检查") 
-        
+    try:       
         
         select_task(task_name="综合--每周--排查")
         object_name="如题如题"
         select_object(object_name)
         
-        #add_qualified()
-        #add_unqualified()
+        #新增合格检查
+        add_qualified()
+        #新增不合格检查，不发起问题
+        add_unqualified()
         
+        #新增不合格检查，并发起问题
         unqualified_item = add_unqualified_issue()
         check_item = '安全员'
         area = ['1#','第2层','2F1房']
@@ -304,8 +295,58 @@ def safetyInspection():
         followers = ['kentest50','kentest52','kentest54']
         create_issue(object_name,unqualified_item,check_item,area,repairer,followers)
 
+        #返回任务列表
+        poco(name='转到上一层级').click()
+        sleep(1)
+        poco(name='转到上一层级').click()
+        
     except:
         log("出错啦",traceback.format_exc())
+
+#已过期任务
+def overdue_task():
+    
+    try:       
+        
+        select_task(task_name="添加按天排查")
+        assert_exists(Template(r"tpl1600402250485.png", record_pos=(-0.157, -0.681), resolution=(1080, 2340)), "检查已结束")
+
+        
+        object_name="消防箱A啊"
+        select_object(object_name)
+        
+        assert_exists(Template(r"tpl1600402343805.png", rgb=True, record_pos=(0.014, 0.887), resolution=(1080, 2340)), "新增检查记录按钮置灰")
+        
+        #返回任务列表
+        poco(name='转到上一层级').click()
+        sleep(1)
+        poco(name='转到上一层级').click()        
+
+    except:
+        log("出错啦",traceback.format_exc())
+
+#无权限检查任务
+def no_permission():
+    
+    try:       
+        
+        select_task(task_name="火车排查")
+        
+        object_name="火车"
+        select_object(object_name)
+        
+        assert_not_exists(Template(r"tpl1600402733024.png", record_pos=(-0.004, 0.879), resolution=(1080, 2340)), "无新增检查记录按钮")
+
+        
+        #返回任务列表
+        poco(name='转到上一层级').click()
+        sleep(1)
+        poco(name='转到上一层级').click()        
+
+    except:
+        log("出错啦",traceback.format_exc())
+
+
         
 def networdTest():
     #网络异常登录重试
@@ -363,6 +404,21 @@ print ("完成测试")
 
 
 class TestSafetyinspection(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        clear_app(apk)
+
+        start_app(apk)
+        sleep(2)
+        
+        authApp()
+
+        login('kentest50','12345678','p1','kentest50')
+        
+        selectMode("组织架构聚合")
+        
+        selectOrg_0(org_name='公司1项目贰')
+        selectApp("安全检查")        
     
     @classmethod
     def tearDownClass(cls):
@@ -373,10 +429,14 @@ class TestSafetyinspection(unittest.TestCase):
 
     def tearDown(self):
         print ("结束一个测试")
-    def test_safet(self):
+    def test_01_safety(self):
         safetyInspection()
+    def test_02_overdue(self):
+        overdue_task()
+    def test_03_noPermission(self):
+        no_permission()
 
-
+        
 if __name__ == '__main__':
     unittest.main()
 
