@@ -40,7 +40,11 @@ auto_setup(__file__, logdir=docs_logdir, devices=[
             "Android:///"])
 
 
-
+#选择tab
+def select_tab(tab_name):
+    #tab_name: 图纸、模型、文档、更多
+    wait(Template(r"tpl1601118080311.png", record_pos=(-0.003, 0.884), resolution=(1080, 2340)))
+    poco(text=tab_name).click()
 
 
 
