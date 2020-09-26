@@ -18,15 +18,19 @@ import os
 import sys
 import unittest
 from airtest.report.report import simple_report
-from init_setting import *
 
 
+#为了导入公共模块方法
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR)
 
 from login.login import *
 from common_api.common_api import *
 
+#导入最上级设置
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(BASE_DIR)
+from init_setting import *
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
