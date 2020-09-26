@@ -266,7 +266,7 @@ def select_object(object_name):
     text(object_name,enter=False)
     object_match = '^' + object_name + '.*$'  #匹配以object_name开头的字符串
     poco(textMatches=object_match,type="android.widget.TextView").parent().click()
-    poco.wait_for_all([poco(text=object_name),poco(text='检查记录'),poco(text='新增检查记录')])
+    poco.wait_for_all([poco(text=object_name),poco(text='检查记录')])
     object_info(object_name)
 #查看检查对象信息    
 def object_info(object_name):
