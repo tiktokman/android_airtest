@@ -348,61 +348,6 @@ def no_permission():
         log("出错啦",traceback.format_exc())
 
 
-        
-def networdTest():
-    #网络异常登录重试
-    while poco(text="重试"):
-        poco(text="重试").click()
-        sleep(2)
-
-
-
-'''
-
-if __name__ == '__main__':
-    
-    threads = []
-
-    t1 = threading.Thread(target=safetyInspection)
-    threads.append(t1)
-
-    t2 = threading.Thread(target=networdTest)
-    threads.append(t2)
-    
-    
-    for t in threads:
-        t.setDaemon(True)
-        t.start()
-        
-    for t in threads:
-        print (t)
-        t.join()
-    
-    print ("完成测试")
-
- '''  
-'''
-
-threads = []
-
-t1 = threading.Thread(target=safetyInspection)
-threads.append(t1)
-
-t2 = threading.Thread(target=networdTest)
-threads.append(t2)
-
-
-for t in threads:
-    t.setDaemon(True)
-    t.start()
-
-for t in threads:
-    print (t)
-    t.join()
-
-print ("完成测试")
-'''
-
 
 class TestSafetyinspection(unittest.TestCase):
     @classmethod
