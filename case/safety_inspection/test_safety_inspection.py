@@ -44,8 +44,8 @@ auto_setup(__file__, logdir=safety_logdir, devices=[
 def pic_test():
     touch((130,330))  #点击图片位置查看图片
     swipe((1000,1000),(200,1000),duration=0.5) #从左到右画横线1秒
-    pinch(in_or_out='out',center=(500,1300),percent=0.005)  #放大
-    pinch(in_or_out='in',center=(500,1300),percent=0.005)   #缩小
+    pinch(in_or_out='out',center=(500,1300),percent=0.5)  #放大
+    pinch(in_or_out='in',center=(500,1300),percent=0.5)   #缩小
     sleep(1)
     
     touch(Template(r"tpl1568708907804.png", record_pos=(-0.464, 0.832), resolution=(1080, 2340)))
