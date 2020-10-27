@@ -66,7 +66,7 @@ def login(username='kentestgrp10',password='12345678',enterprise='p1',real_name=
     if poco(text=welcome_text):
         print ("登录成功")
     else : assert_equal(1,0)  #否则登录失败
-    assert_exists(Template(r"tpl1582528391192.png", record_pos=(-0.004, 0.893), resolution=(1080, 2340)), "登录成功，进入app")
+    assert_exists(Template(r"tpl1603007517626.png", record_pos=(0.008, 0.89), resolution=(1080, 2340)), "登录成功，进入app")
     
     sleep(1)
     #返回工作台

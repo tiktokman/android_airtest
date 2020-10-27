@@ -26,7 +26,7 @@ def authApp():
         
 #选择app标签
 def selectTab(tab_name):
-    wait(Template(r"tpl1582528391192.png", record_pos=(-0.004, 0.893), resolution=(1080, 2340)))
+    wait(Template(r"tpl1603007269685.png", record_pos=(-0.001, 0.877), resolution=(1080, 2340)))
     if tab_name == '关注':
         touch(Template(r"tpl1582711598967.png", record_pos=(-0.368, 0.935), resolution=(1080, 2340)))
     if tab_name == '工作台':
@@ -42,7 +42,7 @@ def selectMode(mode):
     '''
     mode    0：组织架构聚合    1:平铺
     '''
-    assert_exists(Template(r"tpl1582528391192.png", record_pos=(-0.004, 0.893), resolution=(1080, 2340)), "处于app首页")
+    assert_exists(Template(r"tpl1603007269685.png", record_pos=(-0.004, 0.893), resolution=(1080, 2340)), "处于app首页")
     '''
     if mode == 0:
         mode_text = '组织架构聚合'
