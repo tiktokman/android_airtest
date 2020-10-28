@@ -268,9 +268,9 @@ def select_object(object_name):
     #选择检查对象
     poco(text="请输入关键词").click()
     text(object_name,enter=False)
-    #object_match = '^' + object_name + '.*$'  #匹配以object_name开头的字符串
-    #poco(textMatches=object_match,type="android.widget.TextView").parent().click()
-    poco(text=object_name,type="android.widget.TextView").parent().click()
+    object_match = '^' + object_name + '.*$'  #匹配以object_name开头的字符串
+    poco(textMatches=object_match,type="android.widget.TextView").parent().click()
+
     poco.wait_for_all([poco(text=object_name),poco(text='检查记录')])
     object_info(object_name)
 #查看检查对象信息    
@@ -337,7 +337,7 @@ def no_permission():
         
         select_task(task_name="火车排查")
         
-        object_name="火车"
+        object_name="天天听"
         select_object(object_name)
         
         assert_not_exists(Template(r"tpl1600402733024.png", record_pos=(-0.004, 0.879), resolution=(1080, 2340)), "无新增检查记录按钮")
@@ -389,6 +389,7 @@ class TestSafetyinspection(unittest.TestCase):
         
 if __name__ == '__main__':
     unittest.main()
+
 
 
 
