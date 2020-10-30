@@ -18,13 +18,12 @@ from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 '''
 
-#设置用例路径，查找模块名称，导入匹配用例
+#设置用例路径，查找模块名称，导入匹配模块、用例(此时会执行一些函数外的代码)
 test_dir = project_root
 discover = unittest.defaultTestLoader.discover(test_dir, pattern='test_*.py',top_level_dir=None)
 
 if __name__ == '__main__':
 
-	
 	runner = unittest.TextTestRunner()
 	print (discover)
 	runner.run(discover)
