@@ -4,13 +4,15 @@ __author__ = "hallo"
 from airtest.core.api import *
 from poco.exceptions import PocoNoSuchNodeException
 import random
-
+from airtest.core.helper import G
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+#auto_setup(__file__)
 
-
-auto_setup(__file__)
+#为了在别的模块引用本模块的函数时，函数内的template可以使用相对路径
+basedir = os.path.dirname(os.path.abspath(__file__))
+G.BASEDIR.append(basedir)
 
 
 #首次安装启动、获取权限

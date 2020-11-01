@@ -33,11 +33,6 @@ sys.path.append(BASE_DIR)
 from init_setting import *
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
-
-auto_setup(__file__, logdir=safety_logdir, devices=[
-            "Android:///"])
-
 
 
 #，拍照后，打开图片，定位，并退出
@@ -356,15 +351,17 @@ def no_permission():
 class TestSafetyinspection(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+
+        auto_setup(__file__, logdir=safety_logdir, devices=["Android:///"])
         clear_app(apk)
 
         start_app(apk)
         sleep(2)
         
         authApp()
-
-        login('kentest50','12345678','p1','kentest50')
         
+        login('kentest50','12345678','p1','kentest50')
         selectMode("组织架构聚合")
         
         selectOrg_0(org_name='公司1项目贰')
@@ -379,8 +376,10 @@ class TestSafetyinspection(unittest.TestCase):
 
     def tearDown(self):
         print ("结束一个测试")
+    @unittest.skip("test")
     def test_01_safety(self):
         safetyInspection()
+    @unittest.skip("test")
     def test_02_overdue(self):
         overdue_task()
     def test_03_noPermission(self):
