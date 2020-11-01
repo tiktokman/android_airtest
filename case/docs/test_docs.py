@@ -16,7 +16,7 @@ import random
 import traceback
 import os
 import sys
-import unittest
+import pytest
 from airtest.report.report import simple_report
 
 
@@ -115,9 +115,9 @@ def file_manage():
 
 
 
-class TestDocs(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
+class TestDocs():
+
+    def setup_class(self):
         poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 
         auto_setup(__file__, logdir=docs_logdir, devices=["Android:///"])
@@ -132,12 +132,10 @@ class TestDocs(unittest.TestCase):
         login('kentest50','12345678','p1','kentest50')
         
         selectMode("组织架构聚合")
-        
         selectOrg_0(org_name='公司1项目贰')
         selectApp("图纸文档")        
     
-    @classmethod
-    def tearDownClass(cls):
+    def teardown_class(self):
         simple_report(filepath=os.path.realpath(__file__), logpath=docs_logdir, logfile=logfile, output=docs_output)
 
     def setUp(self):
@@ -145,15 +143,15 @@ class TestDocs(unittest.TestCase):
 
     def tearDown(self):
         print ("结束一个文档用例")
-    @unittest.skip("test")
+    @pytest.mark.skip(reason='skip')
     def test_01_draw_manage(self):
         draw()
-    @unittest.skip("test")
+    @pytest.mark.skip(reason='skip')
     def test_02_model_manage(self):
         model()
     def test_03_file_manage(self):
         file_manage()
-    @unittest.skip("test")
+    @pytest.mark.skip(reason='skip')
     def test_04_order_manage(self):
         select_order(order="文件名：Z->A")
         sleep(1)
@@ -161,4 +159,4 @@ class TestDocs(unittest.TestCase):
 
         
 if __name__ == '__main__':
-    unittest.main()
+    pytest.main(["-s","test_docs.py"])  

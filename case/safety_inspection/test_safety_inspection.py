@@ -16,7 +16,7 @@ import random
 import traceback
 import os
 import sys
-import unittest
+import pytest
 from airtest.report.report import simple_report
 
 
@@ -348,9 +348,9 @@ def no_permission():
 
 
 
-class TestSafetyinspection(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
+class TestSafetyinspection():
+
+    def setup_class(self):
         poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 
         auto_setup(__file__, logdir=safety_logdir, devices=["Android:///"])
@@ -367,8 +367,7 @@ class TestSafetyinspection(unittest.TestCase):
         selectOrg_0(org_name='公司1项目贰')
         selectApp("安全检查")        
     
-    @classmethod
-    def tearDownClass(cls):
+    def teardown_class(self):
         simple_report(filepath=os.path.realpath(__file__), logpath=safety_logdir, logfile=logfile, output=safety_output)
 
     def setUp(self):
@@ -376,10 +375,10 @@ class TestSafetyinspection(unittest.TestCase):
 
     def tearDown(self):
         print ("结束一个测试")
-    @unittest.skip("test")
+    @pytest.mark.skip(reason='skip')
     def test_01_safety(self):
         safetyInspection()
-    @unittest.skip("test")
+    @pytest.mark.skip(reason='skip')
     def test_02_overdue(self):
         overdue_task()
     def test_03_noPermission(self):
@@ -387,7 +386,7 @@ class TestSafetyinspection(unittest.TestCase):
 
         
 if __name__ == '__main__':
-    unittest.main()
+    pytest.main(["-s","test_safety_inspection.py"])  
 
 
 
