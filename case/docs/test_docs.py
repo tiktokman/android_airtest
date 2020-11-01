@@ -35,6 +35,12 @@ from init_setting import *
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 
+#下拉更新文件列表
+def update_list():
+    while exists(Template(r"tpl1604241487554.png", record_pos=(0.006, -0.048), resolution=(1080, 2340))) or exists(Template(r"tpl1604241544411.png", threshold=0.8, record_pos=(0.003, -0.824), resolution=(1080, 2340))):
+        swipe((500,700),(500,1500))
+        sleep(5)
+    
 
 #选择tab
 def select_tab(tab_name):
@@ -68,11 +74,13 @@ def select_order(order):
 def draw():
     try:
         select_tab("图纸")
+        update_list()
         select_file("1")
         assert_exists(Template(r"tpl1603004574808.png", record_pos=(-0.381, -0.254), resolution=(1080, 2340)), "找到图纸")
         poco(text="1",type='android.widget.TextView').click()
         poco.wait_for_all(poco(text='拖动'))
-        pinch(in_or_out='out',center=(500,1300),percent=0.5)  #放大
+        pinch(in_or_out='out',center=(500,1300),percent=0.3)  #放大
+        sleep(0.5)
         pinch(in_or_out='in',center=(500,1300),percent=0.5)   #缩小
         poco(name="转到上一层级").click()
         poco(text="取消").click()
@@ -81,13 +89,15 @@ def draw():
 def model():
     try:
         select_tab("模型")
+        update_list()
         select_file("BIM示例")
         assert_exists(Template(r"tpl1603004840739.png", record_pos=(-0.324, -0.802), resolution=(1080, 2340)), "找到模型")
 
         poco(text="BIM示例",type='android.widget.TextView').click()
         assert_exists(Template(r"tpl1603008453158.png", record_pos=(0.435, -0.69), resolution=(1080, 2340)), "打开模型")
         sleep(1)
-        pinch(in_or_out='out',center=(500,1300),percent=0.5)  #放大
+        pinch(in_or_out='out',center=(500,1300),percent=0.3)  #放大
+        sleep(0.5)
         pinch(in_or_out='in',center=(500,1300),percent=0.5)   #缩小
         poco(name="转到上一层级").click()
         poco(text="取消").click()
@@ -97,6 +107,7 @@ def model():
 def file_manage():
     try:
         select_tab("文档")
+        update_list()
         swipe((500,800),(500,1200))
         sleep(2)
         select_file("55555")
@@ -104,7 +115,8 @@ def file_manage():
         poco(text="55555",type='android.widget.TextView').click()
         sleep(1)
         assert_exists(Template(r"tpl1603006137836.png", record_pos=(0.008, -0.017), resolution=(1080, 2340)), "打开文档")  
-        pinch(in_or_out='out',center=(500,1300),percent=0.5)  #放大
+        pinch(in_or_out='out',center=(500,1300),percent=0.1)  #放大
+        sleep(0.5)
         pinch(in_or_out='in',center=(500,1300),percent=0.5)   #缩小
         poco(name="转到上一层级").click()
         poco(text="取消").click()
@@ -122,6 +134,7 @@ class TestDocs():
 
         auto_setup(__file__, logdir=docs_logdir, devices=["Android:///"])
         #auto_setup(__file__, logdir=docs_logdir, devices=["Android://127.0.0.1:5037/127.0.0.1:62001"])
+        '''
         clear_app(apk)
 
         start_app(apk)
@@ -134,7 +147,7 @@ class TestDocs():
         selectMode("组织架构聚合")
         selectOrg_0(org_name='公司1项目贰')
         selectApp("图纸文档")        
-    
+        '''
     def teardown_class(self):
         simple_report(filepath=os.path.realpath(__file__), logpath=docs_logdir, logfile=logfile, output=docs_output)
 
