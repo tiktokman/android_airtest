@@ -33,6 +33,14 @@ sys.path.append(BASE_DIR)
 from init_setting import *
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+#poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+
+
+#选择tab
+def select_tab(tab_name):
+    '''tabname:隐患排查、问题整改、问题记录、统计及进度'''
+    wait(Template(r"tpl1604245311187.png", record_pos=(-0.105, 0.886), resolution=(1080, 2340)))
+    poco(type="android.widget.TextView",text=tab_name).click()
 
 
 #，拍照后，打开图片，定位，并退出
