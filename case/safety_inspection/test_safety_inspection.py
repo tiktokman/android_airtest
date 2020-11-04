@@ -383,10 +383,10 @@ class TestSafetyinspection():
 
     def tearDown(self):
         print ("结束一个测试")
-    @pytest.mark.skip(reason='skip')
+
     def test_01_safety(self):
         safetyInspection()
-    @pytest.mark.skip(reason='skip')
+
     def test_02_overdue(self):
         overdue_task()
     def test_03_noPermission(self):

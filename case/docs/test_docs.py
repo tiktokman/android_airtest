@@ -134,7 +134,7 @@ class TestDocs():
 
         auto_setup(__file__, logdir=docs_logdir, devices=["Android:///"])
         #auto_setup(__file__, logdir=docs_logdir, devices=["Android://127.0.0.1:5037/127.0.0.1:62001"])
-        '''
+        
         clear_app(apk)
 
         start_app(apk)
@@ -147,7 +147,7 @@ class TestDocs():
         selectMode("组织架构聚合")
         selectOrg_0(org_name='公司1项目贰')
         selectApp("图纸文档")        
-        '''
+        
     def teardown_class(self):
         simple_report(filepath=os.path.realpath(__file__), logpath=docs_logdir, logfile=logfile, output=docs_output)
 
@@ -156,15 +156,15 @@ class TestDocs():
 
     def tearDown(self):
         print ("结束一个文档用例")
-    @pytest.mark.skip(reason='skip')
+
     def test_01_draw_manage(self):
         draw()
-    @pytest.mark.skip(reason='skip')
+
     def test_02_model_manage(self):
         model()
     def test_03_file_manage(self):
         file_manage()
-    @pytest.mark.skip(reason='skip')
+
     def test_04_order_manage(self):
         select_order(order="文件名：Z->A")
         sleep(1)
