@@ -6,9 +6,8 @@ import os
 #包名
 apk = "cn.smartinspection.combine"
 
-apkfile = r'\combine_release_2.1.2_20201103-0856_myapp.apk'
 #包路径
-apkpath = os.path.dirname(os.path.realpath(__file__)) +apkfile
+apkpath = os.path.dirname(os.path.realpath(__file__)) +r'\base.apk'
 
 #项目根路径
 project_root = os.path.dirname(os.path.realpath(__file__)) +'\case'

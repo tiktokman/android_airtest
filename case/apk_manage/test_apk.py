@@ -10,7 +10,6 @@ __DESC__ = """
 
 
 from airtest.core.api import *
-from airtest.core.helper import G
 import threading
 import time
 import random
@@ -27,25 +26,7 @@ from init_setting import *
 
 auto_setup(__file__, logdir=docs_logdir, devices=["Android:///"])
 
-#G.DEVICE.install_app(apkpath,install_options='-r -t -g')
+#install(apkpath)
 cmd = 'adb install -r -t -g '+apkpath
 print(cmd)
-
-shell('pm list packages -3')
-
-'''
-    def install_app(self, filepath, replace=False, install_options=None):
-        """
-        Install the application on the device
-
-        Args:
-            filepath: full path to the `apk` file to be installed on the device
-            replace: True or False to replace the existing application
-            install_options: list of options, default is []
-
-        Returns:
-            output from installation process
-
-        """
-        return self.adb.install_app(filepath, replace=replace, install_options=install_options)
-'''
+shell('adb shell pm list packages -s')
