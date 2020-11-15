@@ -10,13 +10,15 @@ apk = "cn.smartinspection.combine"
 apkpath = os.path.dirname(os.path.realpath(__file__)) +r'\base.apk'
 
 #项目根路径
-project_root = os.path.dirname(os.path.realpath(__file__)) +'\case'
+project_root = os.path.dirname(os.path.realpath(__file__)) +r'\case'
 
 
 #日志路径
-safety_logdir = os.path.dirname(os.path.realpath(__file__))+ '\log\safety'
+safety_logdir = os.path.dirname(os.path.realpath(__file__))+ r'\log\safety'
 
-docs_logdir = os.path.dirname(os.path.realpath(__file__))+ '\log\docs'
+docs_logdir = os.path.dirname(os.path.realpath(__file__))+ r'\log\docs'
+
+apkManage_logdir = os.path.dirname(os.path.realpath(__file__))+ r'\log\apk_manage'
 
 
 #运行日志文件
@@ -27,3 +29,4 @@ safety_output= os.path.dirname(os.path.realpath(__file__))+r"\report\安全检�
 
 docs_output= os.path.dirname(os.path.realpath(__file__))+r"\report\图纸文档回归报告.html"
 
+apkManage_output= os.path.dirname(os.path.realpath(__file__))+r"\report\包管理报告.html"
