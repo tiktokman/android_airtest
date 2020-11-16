@@ -37,30 +37,52 @@ def env_init():
 	print("输出报告")
 
 def allow_install():
-	print("11111111111")
+	'''
+	while exists(Template(r"tpl1605455084989.png", threshold=0.8, record_pos=(-0.243, 0.856), resolution=(1080, 2340))):
+		touch(Template(r"tpl1605455084989.png", threshold=0.8, record_pos=(-0.243, 0.856), resolution=(1080, 2340)))
+		print("111111111")
+	'''
 	wait(Template(r"tpl1605455084989.png", threshold=0.8, record_pos=(-0.243, 0.856), resolution=(1080, 2340)),timeout=60)
 	touch(Template(r"tpl1605455084989.png", threshold=0.8, record_pos=(-0.243, 0.856), resolution=(1080, 2340)))
 	print("2222222222")
 
 
 def installApp():
+	print("3333333")
+	'''
 	try:
 		android = Android()
 		android.check_app(apk)
-		t1 = thread(target=allow_install)
-		t1.setDeamon(True)
-		t1.start()
+	
 		print("当前设备已存在待安装应用，执行覆盖安装")
 		android.install_app(filepath=apkpath,replace=False)
 	except AirtestError:
 		print("当前设备不存在待安装应用，执行覆盖安装")
 		android.install_app(filepath=apkpath,replace=True)
+	'''
+	android = Android()
+	android.check_app(apk)
+
+	print("当前设备已存在待安装应用，执行覆盖安装")
+	android.install_app(filepath=apkpath,replace=False)
+def continue_install():
+	threads = []
+
+	t1 = threading.Thread(target=installApp)
+	threads.append(t1)
+
+	t2 = threading.Thread(target=allow_install)
+	threads.append(t2)
+	t2.setDaemon(True)
+
+	t1.start()
+	t2.start()
 
 
 class TestApk():
 
 	def test_installApp(self):
-		installApp()
+		continue_install()
 
 if __name__ == '__main__':
     pytest.main(["-s","test_apk.py"])  
