@@ -134,7 +134,7 @@ class TestDocs():
 
         auto_setup(__file__, logdir=docs_logdir, devices=["Android:///"])
         #auto_setup(__file__, logdir=docs_logdir, devices=["Android://127.0.0.1:5037/127.0.0.1:62001"])
-        '''
+        
         clear_app(apk)
 
         start_app(apk)
@@ -147,7 +147,7 @@ class TestDocs():
         selectMode("组织架构聚合")
         selectOrg_0(org_name='公司1项目贰')
         selectApp("图纸文档")        
-        '''
+        
     def teardown_class(self):
         simple_report(filepath=os.path.realpath(__file__), logpath=docs_logdir, logfile=logfile, output=docs_output)
 

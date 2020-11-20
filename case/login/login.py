@@ -18,10 +18,10 @@ basedir = os.path.dirname(os.path.abspath(__file__))
 G.BASEDIR.append(basedir)
 
 
-
-
 #完成登录 (首次打开登录页面，用户数据为空，输入账户登录，验证登陆成功后回到工作台)
-def login(username='kentestgrp10',password='12345678',enterprise='p1',real_name='kentestgrp10'):
+def login(username,password,enterprise,real_name):
+    if poco(text="马上登录").exists():
+        poco(text="马上登录").click()
     poco.wait_for_any(poco(type='android.widget.EditText'))
     #遍历账号输入框，不管有没值，先置空
     for edittext in poco(type='android.widget.EditText'):
@@ -69,7 +69,6 @@ def login(username='kentestgrp10',password='12345678',enterprise='p1',real_name=
     selectTab("工作台")
 
 
-#login('kentestgrp10','12345678','t8','kentest10')
 
 
 
