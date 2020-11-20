@@ -24,6 +24,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 sys.path.append(BASE_DIR)
 from init_setting import *
 
+from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 
 
 @pytest.fixture(scope="module",autouse=True)
@@ -36,9 +38,12 @@ def env_init():
 	print("输出报告")
 
 def allow_install():
+	#poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 	while True:
-		wait(Template(r"tpl1605543346543.png", record_pos=(-0.237, 0.858), resolution=(1080, 2340)),timeout=60)
-		touch(Template(r"tpl1605543346543.png", record_pos=(-0.237, 0.858), resolution=(1080, 2340)))
+		if poco(text="继续安装").exists():
+			poco(text="继续安装").click()
+			break
+	print("退出循环，结束线程")
 
 
 def continue_install():
@@ -48,10 +53,8 @@ def continue_install():
 	t2.setDaemon(True)
 	t2.start()
 	sleep(2)
-	#for i in range(100):
-		#print("主线程：%s",i)
+
 	try:
-		#install(apkpath)
 		
 		android = Android()
 		android.check_app(apk)
@@ -63,9 +66,15 @@ def continue_install():
 		print("当前设备不存在待安装应用，非覆盖安装")
 		android.install_app(filepath=apkpath,replace=False)	
 
-	assert android.check_app(apk),"安装成功"
+	assert android.check_app(apk)==True,"未安装成功"
 
+def uninstall():
+	keyevent(26)
+	swipe((500,1500),(500,300),duration=0.5)
 class TestApk():
+	def test_01_openDevice(self):
+		shell('input keyevent 224')
+		swipe((500,1500),(500,500),duration=0.1)
 
 	def test_installApp(self):
 		continue_install()
