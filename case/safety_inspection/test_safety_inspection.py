@@ -378,7 +378,7 @@ def no_permission():
         log("出错啦",traceback.format_exc())
 
 
-
+@pytest.mark.safty_inspection
 class TestSafetyinspection():
 
     #@pytest.mark.skip(reason='skip')

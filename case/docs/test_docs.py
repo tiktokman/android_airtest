@@ -149,7 +149,7 @@ def file_manage():
 
 
 
-
+@pytest.mark.docs
 class TestDocs():
 
 

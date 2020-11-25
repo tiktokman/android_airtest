@@ -70,6 +70,8 @@ def continue_install():
 
 def uninstall():
 	pass
+
+@pytest.mark.apk
 class TestApk():
 	def test_01_openDevice(self):
 		shell('input keyevent 224')
