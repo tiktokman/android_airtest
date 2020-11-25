@@ -35,7 +35,7 @@ def env_init():
 
 	yield
 	simple_report(filepath=os.path.realpath(__file__), logpath=apkManage_logdir, logfile=logfile, output=apkManage_output)
-	print("输出报告")
+	print("输出包管理报告")
 
 def allow_install():
 	#poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
@@ -69,8 +69,7 @@ def continue_install():
 	assert android.check_app(apk)==True,"未安装成功"
 
 def uninstall():
-	keyevent(26)
-	swipe((500,1500),(500,300),duration=0.5)
+	pass
 class TestApk():
 	def test_01_openDevice(self):
 		shell('input keyevent 224')

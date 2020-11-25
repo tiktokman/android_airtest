@@ -34,6 +34,29 @@ from init_setting import *
 
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+
+@pytest.fixture(scope="module",autouse=True)
+def env_init():
+    auto_setup(__file__, logdir=docs_logdir, devices=["Android:///"])
+    #auto_setup(__file__, logdir=docs_logdir, devices=["Android://127.0.0.1:5037/127.0.0.1:62001"])
+    print("完成环境初始化")
+    clear_app(apk)
+
+    start_app(apk)
+    sleep(2)
+    
+    authApp()
+
+    login('kentest50','12345678','p1','kentest50')
+    
+    #selectMode("组织架构聚合")
+    selectOrg_0(org_name='公司1项目贰')
+    selectApp("图纸文档")    
+
+    yield
+    simple_report(filepath=os.path.realpath(__file__), logpath=docs_logdir, logfile=logfile, output=docs_output)
+    print("输出文档模块报告")
 
 #下拉更新文件列表
 def update_list():
@@ -129,42 +152,16 @@ def file_manage():
 
 class TestDocs():
 
-    def setup_class(self):
-        poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 
-        auto_setup(__file__, logdir=docs_logdir, devices=["Android:///"])
-        #auto_setup(__file__, logdir=docs_logdir, devices=["Android://127.0.0.1:5037/127.0.0.1:62001"])
-        
-        clear_app(apk)
-
-        start_app(apk)
-        sleep(2)
-        
-        authApp()
-
-        login('kentest50','12345678','p1','kentest50')
-        
-        selectMode("组织架构聚合")
-        selectOrg_0(org_name='公司1项目贰')
-        selectApp("图纸文档")        
-        
-    def teardown_class(self):
-        simple_report(filepath=os.path.realpath(__file__), logpath=docs_logdir, logfile=logfile, output=docs_output)
-
-    def setUp(self):
-        print("开始跑一个文档用例")
-
-    def tearDown(self):
-        print ("结束一个文档用例")
-    @pytest.mark.skip(reason='skip')
+    #@pytest.mark.skip(reason='skip')
     def test_01_draw_manage(self):
         draw()
-    @pytest.mark.skip(reason='skip')
+    #@pytest.mark.skip(reason='skip')
     def test_02_model_manage(self):
         model()
     def test_03_file_manage(self):
         file_manage()
-    @pytest.mark.skip(reason='skip')
+    #@pytest.mark.skip(reason='skip')
     def test_04_order_manage(self):
         select_order(order="文件名：Z->A")
         sleep(1)

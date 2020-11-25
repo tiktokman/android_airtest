@@ -33,7 +33,30 @@ sys.path.append(BASE_DIR)
 from init_setting import *
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-#poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+
+
+@pytest.fixture(scope="module",autouse=True)
+def env_init():
+    auto_setup(__file__, logdir=safety_logdir, devices=["Android:///"])
+    print("完成环境初始化")
+    clear_app(apk)
+
+    start_app(apk)
+    sleep(2)
+    
+    authApp()
+    
+    login('kentest50','12345678','p1','kentest50')
+    #selectMode("组织架构聚合")
+    
+    selectOrg_0(org_name='公司1项目贰')
+    selectApp("安全检查")     
+
+    yield
+    simple_report(filepath=os.path.realpath(__file__), logpath=safety_logdir, logfile=logfile, output=safety_output)
+    print("输出安全模块报告")
+
 
 
 #选择tab
@@ -358,35 +381,10 @@ def no_permission():
 
 class TestSafetyinspection():
 
-    def setup_class(self):
-        poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
-
-        auto_setup(__file__, logdir=safety_logdir, devices=["Android:///"])
-        clear_app(apk)
-
-        start_app(apk)
-        sleep(2)
-        
-        authApp()
-        
-        login('kentest50','12345678','p1','kentest50')
-        selectMode("组织架构聚合")
-        
-        selectOrg_0(org_name='公司1项目贰')
-        selectApp("安全检查")        
-    
-    def teardown_class(self):
-        simple_report(filepath=os.path.realpath(__file__), logpath=safety_logdir, logfile=logfile, output=safety_output)
-
-    def setUp(self):
-        print("开始跑一个用例")
-
-    def tearDown(self):
-        print ("结束一个测试")
-    @pytest.mark.skip(reason='skip')
+    #@pytest.mark.skip(reason='skip')
     def test_01_safety(self):
         safetyInspection()
-    @pytest.mark.skip(reason='skip')
+    #@pytest.mark.skip(reason='skip')
     def test_02_overdue(self):
         overdue_task()
     def test_03_noPermission(self):
