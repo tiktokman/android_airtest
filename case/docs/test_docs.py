@@ -117,7 +117,7 @@ def model():
         assert_exists(Template(r"tpl1603004840739.png", record_pos=(-0.324, -0.802), resolution=(1080, 2340)), "找到模型")
 
         poco(text="BIM示例",type='android.widget.TextView').click()
-        assert_exists(Template(r"tpl1603008453158.png", record_pos=(0.435, -0.69), resolution=(1080, 2340)), "打开模型")
+        wait(Template(r"tpl1603008453158.png", record_pos=(0.435, -0.69), resolution=(1080, 2340)), timeout=60)#网络拥挤或模型较大时加载较慢，等待时间延长
         sleep(1)
         pinch(in_or_out='out',center=(500,1300),percent=0.3)  #放大
         sleep(0.5)
