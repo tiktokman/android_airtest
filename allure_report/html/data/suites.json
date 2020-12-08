@@ -1,0 +1,94 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "case.safety_inspection",
+    "children" : [ {
+      "name" : "test_safety_inspection",
+      "children" : [ {
+        "name" : "TestSafetyinspection",
+        "children" : [ {
+          "name" : "test_01_safety",
+          "uid" : "3da2f02fac061353",
+          "parentUid" : "9033c40d680e0941463080260ad4e654",
+          "status" : "passed",
+          "time" : {
+            "start" : 1607398044116,
+            "stop" : 1607398185667,
+            "duration" : 141551
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "test_02_overdue",
+          "uid" : "ddfe0799205db6e7",
+          "parentUid" : "9033c40d680e0941463080260ad4e654",
+          "status" : "passed",
+          "time" : {
+            "start" : 1607398185683,
+            "stop" : 1607398200507,
+            "duration" : 14824
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "test_03_noPermission",
+          "uid" : "47aef4b132e74931",
+          "parentUid" : "9033c40d680e0941463080260ad4e654",
+          "status" : "passed",
+          "time" : {
+            "start" : 1607398200522,
+            "stop" : 1607398215209,
+            "duration" : 14687
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "9033c40d680e0941463080260ad4e654"
+      } ],
+      "uid" : "4ed5cf2885d84e6bfbc73ccbef128582"
+    } ],
+    "uid" : "9bdd80ef4a0c49145af675373b1bf5b0"
+  }, {
+    "name" : "case.apk_manage",
+    "children" : [ {
+      "name" : "test_apk",
+      "children" : [ {
+        "name" : "TestApk",
+        "children" : [ {
+          "name" : "test_01_openDevice",
+          "uid" : "eacb2f196744dfd8",
+          "parentUid" : "d01009d159e2eb560f1a17324bc7c7a8",
+          "status" : "passed",
+          "time" : {
+            "start" : 1607398304092,
+            "stop" : 1607398309320,
+            "duration" : 5228
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "test_installApp",
+          "uid" : "95a7ebc83d38bf16",
+          "parentUid" : "d01009d159e2eb560f1a17324bc7c7a8",
+          "status" : "broken",
+          "time" : {
+            "start" : 1607398309336,
+            "stop" : 1607398314504,
+            "duration" : 5168
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "d01009d159e2eb560f1a17324bc7c7a8"
+      } ],
+      "uid" : "4dfd869c367fa7d4d7232e564ce51396"
+    } ],
+    "uid" : "e03585cf1f591c6eacfa8835c42242be"
+  } ]
+}

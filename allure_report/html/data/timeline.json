@@ -1,0 +1,82 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "LAPTOP-3BSH24T4",
+    "children" : [ {
+      "name" : "20416-MainThread",
+      "children" : [ {
+        "name" : "test_02_overdue",
+        "uid" : "ddfe0799205db6e7",
+        "parentUid" : "6dbc8f6aa3fc0bedda3998131090d825",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607398185683,
+          "stop" : 1607398200507,
+          "duration" : 14824
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_03_noPermission",
+        "uid" : "47aef4b132e74931",
+        "parentUid" : "6dbc8f6aa3fc0bedda3998131090d825",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607398200522,
+          "stop" : 1607398215209,
+          "duration" : 14687
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_01_safety",
+        "uid" : "3da2f02fac061353",
+        "parentUid" : "6dbc8f6aa3fc0bedda3998131090d825",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607398044116,
+          "stop" : 1607398185667,
+          "duration" : 141551
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "6dbc8f6aa3fc0bedda3998131090d825"
+    }, {
+      "name" : "18080-MainThread",
+      "children" : [ {
+        "name" : "test_01_openDevice",
+        "uid" : "eacb2f196744dfd8",
+        "parentUid" : "2a5b0a2002fbef0b478f47746d2a3703",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607398304092,
+          "stop" : 1607398309320,
+          "duration" : 5228
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_installApp",
+        "uid" : "95a7ebc83d38bf16",
+        "parentUid" : "2a5b0a2002fbef0b478f47746d2a3703",
+        "status" : "broken",
+        "time" : {
+          "start" : 1607398309336,
+          "stop" : 1607398314504,
+          "duration" : 5168
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "2a5b0a2002fbef0b478f47746d2a3703"
+    } ],
+    "uid" : "06f4596859627edc134952fb65ea312c"
+  } ]
+}

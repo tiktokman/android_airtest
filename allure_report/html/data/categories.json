@@ -1,0 +1,26 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "airtest.core.error.AdbError: stdout[] stderr[adb: failed to install C:\\airtest_script\\base.apk: Failure [INSTALL_FAILED_VERSION_DOWNGRADE]\r\n]",
+      "children" : [ {
+        "name" : "test_installApp",
+        "uid" : "95a7ebc83d38bf16",
+        "parentUid" : "d85c3744f9f6b383cbc7cb89ea437114",
+        "status" : "broken",
+        "time" : {
+          "start" : 1607398309336,
+          "stop" : 1607398314504,
+          "duration" : 5168
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "d85c3744f9f6b383cbc7cb89ea437114"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
+}

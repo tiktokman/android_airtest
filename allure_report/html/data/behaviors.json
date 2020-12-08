@@ -1,0 +1,86 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "对象安全检查",
+    "children" : [ {
+      "name" : "提交不合格记录并发起问题单",
+      "children" : [ {
+        "name" : "test_01_safety",
+        "uid" : "3da2f02fac061353",
+        "parentUid" : "755c9b3c0e4e2473541da976905b3924",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607398044116,
+          "stop" : 1607398185667,
+          "duration" : 141551
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "755c9b3c0e4e2473541da976905b3924"
+    }, {
+      "name" : "验证过期任务新增记录按钮置灰",
+      "children" : [ {
+        "name" : "test_02_overdue",
+        "uid" : "ddfe0799205db6e7",
+        "parentUid" : "7e280d0bd875a61a9b773dce10ffde26",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607398185683,
+          "stop" : 1607398200507,
+          "duration" : 14824
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "7e280d0bd875a61a9b773dce10ffde26"
+    }, {
+      "name" : "验证无权限人员不展示新增按钮",
+      "children" : [ {
+        "name" : "test_03_noPermission",
+        "uid" : "47aef4b132e74931",
+        "parentUid" : "052080a077ef3e24e1c27e625aea50de",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607398200522,
+          "stop" : 1607398215209,
+          "duration" : 14687
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "052080a077ef3e24e1c27e625aea50de"
+    } ],
+    "uid" : "618fdab7ffe0d89951c3ed912529fc99"
+  }, {
+    "name" : "test_01_openDevice",
+    "uid" : "eacb2f196744dfd8",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1607398304092,
+      "stop" : 1607398309320,
+      "duration" : 5228
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_installApp",
+    "uid" : "95a7ebc83d38bf16",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "broken",
+    "time" : {
+      "start" : 1607398309336,
+      "stop" : 1607398314504,
+      "duration" : 5168
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  } ]
+}

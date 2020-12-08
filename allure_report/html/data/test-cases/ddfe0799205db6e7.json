@@ -1,0 +1,131 @@
+{
+  "uid" : "ddfe0799205db6e7",
+  "name" : "test_02_overdue",
+  "fullName" : "case.safety_inspection.test_safety_inspection.TestSafetyinspection#test_02_overdue",
+  "historyId" : "31d18a758e0771d3539abb5349c294b3",
+  "time" : {
+    "start" : 1607398185683,
+    "stop" : 1607398200507,
+    "duration" : 14824
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "env_init",
+    "time" : {
+      "start" : 1607397977929,
+      "stop" : 1607398044108,
+      "duration" : 66179
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "搜索并选择任务",
+      "time" : {
+        "start" : 1607398185683,
+        "stop" : 1607398200503,
+        "duration" : 14820
+      },
+      "status" : "broken",
+      "statusMessage" : "poco.exceptions.PocoNoSuchNodeException: Cannot find any visible node by query UIObjectProxy of \"text=请输入关键词\"\n",
+      "statusTrace" : "  File \"C:\\virtualenv\\airtest\\lib\\site-packages\\allure_commons\\_allure.py\", line 169, in impl\n    return func(*a, **kw)\n  File \"C:\\airtest_script\\case\\safety_inspection\\test_safety_inspection.py\", line 286, in select_task\n    poco(text=\"请输入关键词\").click()\n  File \"C:\\virtualenv\\airtest\\lib\\site-packages\\poco\\proxy.py\", line 29, in wrapped\n    raise e\n  File \"C:\\virtualenv\\airtest\\lib\\site-packages\\poco\\proxy.py\", line 23, in wrapped\n    return func(proxy, *args, **kwargs)\n  File \"C:\\virtualenv\\airtest\\lib\\site-packages\\poco\\proxy.py\", line 332, in click\n    pos_in_percentage = self.get_position(focus)\n  File \"C:\\virtualenv\\airtest\\lib\\site-packages\\poco\\proxy.py\", line 72, in wrapped\n    return func(proxy, *args, **kwargs)\n  File \"C:\\virtualenv\\airtest\\lib\\site-packages\\poco\\proxy.py\", line 613, in get_position\n    pos = self.attr('pos')\n  File \"C:\\virtualenv\\airtest\\lib\\site-packages\\poco\\proxy.py\", line 39, in wrapped\n    return func(self, *args, **kwargs)\n  File \"C:\\virtualenv\\airtest\\lib\\site-packages\\poco\\proxy.py\", line 734, in attr\n    nodes = self._do_query(multiple=False)\n  File \"C:\\virtualenv\\airtest\\lib\\site-packages\\poco\\proxy.py\", line 874, in _do_query\n    raise PocoNoSuchNodeException(self)\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "task_name",
+        "value" : "'添加按天排查'"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "20087683780ea0bb",
+      "name" : "log",
+      "source" : "20087683780ea0bb.txt",
+      "type" : "text/plain",
+      "size" : 1804
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 1,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ {
+    "name" : "env_init::0",
+    "time" : {
+      "start" : 1607398215211,
+      "stop" : 1607398216402,
+      "duration" : 1191
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "验证过期任务新增记录按钮置灰"
+  }, {
+    "name" : "feature",
+    "value" : "对象安全检查"
+  }, {
+    "name" : "tag",
+    "value" : "safety_inspection"
+  }, {
+    "name" : "parentSuite",
+    "value" : "case.safety_inspection"
+  }, {
+    "name" : "suite",
+    "value" : "test_safety_inspection"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestSafetyinspection"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-3BSH24T4"
+  }, {
+    "name" : "thread",
+    "value" : "20416-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "case.safety_inspection.test_safety_inspection"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "safety_inspection" ]
+  },
+  "source" : "ddfe0799205db6e7.json",
+  "parameterValues" : [ ]
+}

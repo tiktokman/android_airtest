@@ -1,0 +1,98 @@
+{
+  "e7e6a2f715288d9087d19c2a18002c9e" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "eacb2f196744dfd8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607398304092,
+        "stop" : 1607398309320,
+        "duration" : 5228
+      }
+    } ]
+  },
+  "5a969fa527fd056ee19c62b007113842" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "95a7ebc83d38bf16",
+      "status" : "broken",
+      "statusDetails" : "airtest.core.error.AdbError: stdout[] stderr[adb: failed to install C:\\airtest_script\\base.apk: Failure [INSTALL_FAILED_VERSION_DOWNGRADE]\r\n]",
+      "time" : {
+        "start" : 1607398309336,
+        "stop" : 1607398314504,
+        "duration" : 5168
+      }
+    } ]
+  },
+  "a6ec558b2488a923eb478a2ff99c5865" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "47aef4b132e74931",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607398200522,
+        "stop" : 1607398215209,
+        "duration" : 14687
+      }
+    } ]
+  },
+  "dd8b58a48b51082f16df252ef8cf1a54" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "3da2f02fac061353",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607398044116,
+        "stop" : 1607398185667,
+        "duration" : 141551
+      }
+    } ]
+  },
+  "31d18a758e0771d3539abb5349c294b3" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "ddfe0799205db6e7",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607398185683,
+        "stop" : 1607398200507,
+        "duration" : 14824
+      }
+    } ]
+  }
+}

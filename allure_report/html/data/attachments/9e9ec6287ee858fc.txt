@@ -1,0 +1,45 @@
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe devices
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe devices
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb wait-for-device
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell getprop ro.build.version.sdk
+[33mWARNING [0m airtest.core.api:api.py:36 Device:9de9f8bb updated <airtest.core.android.android.Android object at 0x000001B97A65E400> -> <airtest.core.android.android.Android object at 0x000001B97AF3DD68>
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell input keyevent 224
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell pm path jp.co.cyberagent.stf.rotationwatcher
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell export CLASSPATH=/data/app/jp.co.cyberagent.stf.rotationwatcher-lrrpMjMI5uAw_uaHjoYa9g==/base.apk;exec app_process /system/bin jp.co.cyberagent.stf.rotationwatcher.RotationWatcher
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell ls /data/local/tmp/minicap
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell ls /data/local/tmp/minicap.so
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell LD_LIBRARY_PATH=/data/local/tmp /data/local/tmp/minicap -v 2>&1
+[35mDEBUG   [0m airtest.core.android.minicap:minicap.py:73 version:6
+[35mDEBUG   [0m airtest.core.android.minicap:minicap.py:80 skip install minicap
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb forward --no-rebind tcp:11879 localabstract:minicap_11879
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell LD_LIBRARY_PATH=/data/local/tmp /data/local/tmp/minicap -i
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell dumpsys window displays
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell LD_LIBRARY_PATH=/data/local/tmp /data/local/tmp/minicap -n 'minicap_11879' -P 1080x2340@1080x2340/0 -l 2>&1
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minicap_server]b'PID: 19832'
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minicap_server]b'INFO: Using projection 1080x2340@1080x2340/0'
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minicap_server]b'INFO: (external/MY_minicap/src/minicap_28.cpp:241) Creating SurfaceComposerClient'
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minicap_server]b'INFO: (external/MY_minicap/src/minicap_28.cpp:244) Performing SurfaceComposerClient init check'
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minicap_server]b'INFO: (external/MY_minicap/src/minicap_28.cpp:255) Creating virtual display'
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minicap_server]b'INFO: (external/MY_minicap/src/minicap_28.cpp:261) Creating buffer queue'
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minicap_server]b'INFO: (external/MY_minicap/src/minicap_28.cpp:264) Setting buffer options'
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minicap_server]b'INFO: (external/MY_minicap/src/minicap_28.cpp:268) Creating CPU consumer'
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minicap_server]b'INFO: (external/MY_minicap/src/minicap_28.cpp:272) Creating frame waiter'
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minicap_server]b'INFO: (external/MY_minicap/src/minicap_28.cpp:276) Publishing virtual display'
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minicap_server]b'INFO: (jni/minicap/JpgEncoder.cpp:64) Allocating 7678980 bytes for JPG encoder'
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minicap_server]b'INFO: (jni/minicap/minicap.cpp:489) Server start'
+[35mDEBUG   [0m airtest.core.android.minicap:minicap.py:265 (1, 24, 19832, 1080, 2340, 1080, 2340, 0, 2)
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minicap_server]b'INFO: (jni/minicap/minicap.cpp:492) New client connection'
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell LD_LIBRARY_PATH=/data/local/tmp /data/local/tmp/minicap -i
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell dumpsys window displays
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell getprop ro.product.cpu.abi
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell getprop ro.build.version.sdk
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell ls /data/local/tmp/minitouch
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell stat -c %s /data/local/tmp/minitouch
+[35mDEBUG   [0m airtest.core.android.touch_methods.minitouch:minitouch.py:54 install_minitouch skipped
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell LD_LIBRARY_PATH=/data/local/tmp /data/local/tmp/minicap -i
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell dumpsys window displays
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb forward --no-rebind tcp:12792 localabstract:minitouch_12792
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell /data/local/tmp/minitouch -n 'minitouch_12792' 2>&1
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minitouch_server]b'Type B touch device fts (1079x2339 with 10 contacts) detected on /dev/input/event4 (score 22597)'
+[35mDEBUG   [0m airtest.core.android.touch_methods.minitouch:minitouch.py:143 minitouch header:b'v 1\n^ 10 1079 2339 0\n$ 19872\n'
+[35mDEBUG   [0m airtest.utils.nbsp:nbsp.py:37 [minitouch_server]b'Connection established'

@@ -1,10 +1,10 @@
 # -*- encoding=utf8 -*-
 __author__ = "hallo"
 
-from airtest.core.api import *
-from airtest.cli.parser import cli_setup
 import func_timeout
 import pytest
+import allure
+import os
 from airtest.report.report import simple_report
 from init_setting import *
 
@@ -47,11 +47,16 @@ if __name__ == '__main__':
 
 	args=output_args()
 
+
 	if args =="./":
-		pytest.main(["-v","-s","./"])
+		pytest.main(['--alluredir','./allure_report/results',"-v","-s","./"])
 
 	else:
-		pytest.main(["-v","-s","-m",args])
+		pytest.main(['--alluredir','./allure_report/results',"-v","-s","-m",args])
+
+	os.system('allure generate ./allure_report/results -o ./allure_report/html --clean')
+	#生成的报告直接打开是空白的，暂时用命令打开，allure open allure_report/html
+	print("完成测试，输出报告")
 
 
 

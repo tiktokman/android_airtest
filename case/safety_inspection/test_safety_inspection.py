@@ -17,6 +17,7 @@ import traceback
 import os
 import sys
 import pytest
+import allure
 from airtest.report.report import simple_report
 
 
@@ -59,13 +60,14 @@ def env_init():
 
 
 
+@allure.step("模块内选择tab")
 #选择tab
 def select_tab(tab_name):
     '''tabname:隐患排查、问题整改、问题记录、统计及进度'''
     wait(Template(r"tpl1604245311187.png", record_pos=(-0.105, 0.886), resolution=(1080, 2340)))
     poco(type="android.widget.TextView",text=tab_name).click()
 
-
+@allure.step("打开图片、定位")
 #，拍照后，打开图片，定位，并退出
 def pic_test():
     touch((130,330))  #点击图片位置查看图片
@@ -91,6 +93,7 @@ def pic_test():
     
         poco(name="转到上一层级").click()
 
+@allure.step("长按删除图片")
 #长按删除照片
 def delete_pic():
     swipe((130,330),(130,330),duration=0.5) #拖动到相对位置为0的地方，实现长按效果
@@ -99,7 +102,7 @@ def delete_pic():
         touch(Template(r"tpl1585582863805.png", threshold=0.9, record_pos=(-0.324, -0.824), resolution=(1080, 2340)))
     sleep(1)
     
-
+@allure.step("标记检查项检查结果")
 #对检查项进行检查（通过与不通过）并提取不通过的检查项文本
 def check_item():
     #遍历检查项，并随机对检查项进行检查（检查项数量、通过与不通过的按钮位置，）
@@ -115,7 +118,8 @@ def check_item():
             item.child().child().set_text("检查项设值")  #将值设短，避免影响组件顺序
             item.child().child()[1].click() #点击√ 
     return false_item
-    
+
+@allure.step("新增合格检查，并断言结果")    
 #新增合格检查，并断言结果    
 def add_qualified():
     poco(text="新增检查记录").click()
@@ -147,6 +151,7 @@ def add_qualified():
     
     poco(name="转到上一层级").click()
 
+@allure.step("选择是否发起整改流程")
 #选择是否发起整改流程    
 def add_issue(add): # 0：否  1：是
     wait(Template(r"tpl1589820114424.png", record_pos=(-0.008, -0.032), resolution=(1080, 2340)))
@@ -156,7 +161,8 @@ def add_issue(add): # 0：否  1：是
     elif add==1:
         poco(text='是').click()
     sleep(1)
-        
+   
+@allure.step("发起问题单")        
 def create_issue(object_name,unqualified_item,check_item,area,repairer,followers):   #需设置为不通过的检查项；问题检查项; 检查部位列表； 负责人；参与人列表；
     exists(Template(r"tpl1590423070275.png", record_pos=(-0.264, -0.774), resolution=(1080, 2340)))
     
@@ -214,7 +220,7 @@ def create_issue(object_name,unqualified_item,check_item,area,repairer,followers
     poco(desc='保存').click()
     
         
-        
+@allure.step("新增不合格检查，并断言结果")       
 #新增不合格检查，并断言结果    
 def add_unqualified():
     poco(text="新增检查记录").click()
@@ -267,7 +273,7 @@ def add_unqualified_issue():   #返回不合格项
 
     
     
-
+@allure.step("搜索并选择任务")
 #任务列表页，搜索并选择任务   
 def select_task(task_name):
     #等待刷新任务列表
@@ -282,7 +288,7 @@ def select_task(task_name):
     
     poco(text=task_name,touchable=False).click()  #单纯对text匹配会匹配到输入框
     
-
+@allure.step("搜索并选择检查对象")
 #检查对象列表页，搜索并选择检查对象
 def select_object(object_name):
     #等待刷新对象列表
@@ -299,11 +305,15 @@ def select_object(object_name):
 
     poco.wait_for_all([poco(text=object_name),poco(text='检查记录')])
     object_info(object_name)
+
+@allure.step("查看检查对象信息")
 #查看检查对象信息    
 def object_info(object_name):
     poco(text=object_name).sibling(type='android.widget.ImageView').click()
     poco.wait_for_all([poco(text='名称'),poco(text=object_name,type='android.view.View')])
     poco(name='转到上一层级').click()
+
+
 #模块主程序    
 def safetyInspection():
     
@@ -378,15 +388,20 @@ def no_permission():
         log("出错啦",traceback.format_exc())
 
 
-@pytest.mark.safty_inspection
+@allure.feature('对象安全检查')
+@pytest.mark.safety_inspection
 class TestSafetyinspection():
-
+    @allure.story("提交不合格记录并发起问题单")
     #@pytest.mark.skip(reason='skip')
     def test_01_safety(self):
         safetyInspection()
+
+    @allure.story("验证过期任务新增记录按钮置灰")
     #@pytest.mark.skip(reason='skip')
     def test_02_overdue(self):
         overdue_task()
+
+    @allure.story("验证无权限人员不展示新增按钮")
     def test_03_noPermission(self):
         no_permission()
 

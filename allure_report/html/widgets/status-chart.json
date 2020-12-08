@@ -1,0 +1,51 @@
+[ {
+  "uid" : "ddfe0799205db6e7",
+  "name" : "test_02_overdue",
+  "time" : {
+    "start" : 1607398185683,
+    "stop" : 1607398200507,
+    "duration" : 14824
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3da2f02fac061353",
+  "name" : "test_01_safety",
+  "time" : {
+    "start" : 1607398044116,
+    "stop" : 1607398185667,
+    "duration" : 141551
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "95a7ebc83d38bf16",
+  "name" : "test_installApp",
+  "time" : {
+    "start" : 1607398309336,
+    "stop" : 1607398314504,
+    "duration" : 5168
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "eacb2f196744dfd8",
+  "name" : "test_01_openDevice",
+  "time" : {
+    "start" : 1607398304092,
+    "stop" : 1607398309320,
+    "duration" : 5228
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "47aef4b132e74931",
+  "name" : "test_03_noPermission",
+  "time" : {
+    "start" : 1607398200522,
+    "stop" : 1607398215209,
+    "duration" : 14687
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

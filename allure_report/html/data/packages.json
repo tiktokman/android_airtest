@@ -1,0 +1,82 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "case",
+    "children" : [ {
+      "name" : "safety_inspection.test_safety_inspection",
+      "children" : [ {
+        "name" : "test_01_safety",
+        "uid" : "3da2f02fac061353",
+        "parentUid" : "3a56ecb089214f0caf017339ad4b128f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607398044116,
+          "stop" : 1607398185667,
+          "duration" : 141551
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_02_overdue",
+        "uid" : "ddfe0799205db6e7",
+        "parentUid" : "3a56ecb089214f0caf017339ad4b128f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607398185683,
+          "stop" : 1607398200507,
+          "duration" : 14824
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_03_noPermission",
+        "uid" : "47aef4b132e74931",
+        "parentUid" : "3a56ecb089214f0caf017339ad4b128f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607398200522,
+          "stop" : 1607398215209,
+          "duration" : 14687
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "safety_inspection.test_safety_inspection"
+    }, {
+      "name" : "apk_manage.test_apk",
+      "children" : [ {
+        "name" : "test_01_openDevice",
+        "uid" : "eacb2f196744dfd8",
+        "parentUid" : "78acebe32ad97da6d8d8830fc5c4b7d5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607398304092,
+          "stop" : 1607398309320,
+          "duration" : 5228
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_installApp",
+        "uid" : "95a7ebc83d38bf16",
+        "parentUid" : "78acebe32ad97da6d8d8830fc5c4b7d5",
+        "status" : "broken",
+        "time" : {
+          "start" : 1607398309336,
+          "stop" : 1607398314504,
+          "duration" : 5168
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "apk_manage.test_apk"
+    } ],
+    "uid" : "3a5ff917f72cbd03b2a2ff2549394ef0"
+  } ]
+}

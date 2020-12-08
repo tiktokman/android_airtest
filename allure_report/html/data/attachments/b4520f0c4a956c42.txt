@@ -1,0 +1,6 @@
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe devices
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe devices
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb wait-for-device
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell getprop ro.build.version.sdk
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb shell dumpsys package cn.smartinspection.combine
+[35mDEBUG   [0m airtest.core.android.adb:adb.py:144 C:\virtualenv\airtest\lib\site-packages\airtest\core\android\static\adb\windows\adb.exe -s 9de9f8bb install -r C:\airtest_script\base.apk

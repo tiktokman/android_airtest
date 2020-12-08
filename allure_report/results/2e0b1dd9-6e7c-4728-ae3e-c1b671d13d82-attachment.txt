@@ -1,0 +1,18 @@
+[32mINFO    [0m airtest.core.api:cv.py:56 Try finding:
+Template(C:\airtest_script\case\safety_inspection\tpl1600334973891.png)
+[35mDEBUG   [0m airtest.core.api:cv.py:170 try match with SURFMatching
+[35mDEBUG   [0m airtest.aircv.keypoint_base:keypoint_base.py:24 find_best_result() run time is 1.27 s.
+[35mDEBUG   [0m airtest.core.api:cv.py:170 try match with TemplateMatching
+[35mDEBUG   [0m airtest.aircv.template_matching:template_matching.py:95 [Template] threshold=0.7, result={'result': (252, 324), 'rectangle': ((204, 279), (204, 370), (301, 370), (301, 279)), 'confidence': 0.5847532749176025}
+[35mDEBUG   [0m airtest.aircv.template_matching:template_matching.py:26 find_best_result() run time is 0.31 s.
+[35mDEBUG   [0m airtest.core.api:cv.py:170 try match with BRISKMatching
+[35mDEBUG   [0m airtest.aircv.keypoint_base:keypoint_base.py:24 find_best_result() run time is 0.92 s.
+[35mDEBUG   [0m airtest.core.api:cv.py:140 match result: None
+[35mDEBUG   [0m airtest.core.api:cv.py:170 try match with SURFMatching
+[35mDEBUG   [0m airtest.aircv.keypoint_base:keypoint_base.py:24 find_best_result() run time is 1.22 s.
+[35mDEBUG   [0m airtest.core.api:cv.py:170 try match with TemplateMatching
+[35mDEBUG   [0m airtest.aircv.template_matching:template_matching.py:95 [Template] threshold=0.7, result={'result': (252, 324), 'rectangle': ((204, 279), (204, 370), (301, 370), (301, 279)), 'confidence': 0.5847532749176025}
+[35mDEBUG   [0m airtest.aircv.template_matching:template_matching.py:26 find_best_result() run time is 0.27 s.
+[35mDEBUG   [0m airtest.core.api:cv.py:170 try match with BRISKMatching
+[35mDEBUG   [0m airtest.aircv.keypoint_base:keypoint_base.py:24 find_best_result() run time is 0.90 s.
+[35mDEBUG   [0m airtest.core.api:cv.py:140 match result: None
